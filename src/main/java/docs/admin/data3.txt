@@ -1,0 +1,20 @@
+{
+  "-1121245852" : {
+    "info" : {
+      "password" : "P@ssw0rd123",
+      "securityQuestion" : "IN_WHAT_CITY_WERE_YOU_BORN",
+      "securityAnswer" : "New York City",
+      "userBooks" : [ ],
+      "strikes" : 0
+    },
+    "user" : {
+      "firstName" : "Some",
+      "lastName" : "User",
+      "emailAddress" : "meet@patel.com",
+      "phoneNumber" : "3334445555",
+      "country" : "United States",
+      "state" : "New York",
+      "city" : "Elm"
+    }
+  }
+}

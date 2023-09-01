@@ -1,0 +1,44 @@
+{
+  "0" : {
+    "info" : {
+      "password" : "Secur3P@ss",
+      "securityQuestion" : "WHAT_IS_YOUR_FAVORITE_BOOK",
+      "securityAnswer" : "The Great Gatsby",
+      "userBooks" : [ ],
+      "cart" : {
+        "books" : null
+      },
+      "strikes" : 0
+    },
+    "user" : {
+      "firstName" : "Alice",
+      "lastName" : "Johnson",
+      "emailAddress" : "alice@example.com",
+      "phoneNumber" : "5556667777",
+      "country" : "United States",
+      "state" : "California",
+      "city" : "Los Angeles"
+    }
+  },
+  "-1121245852" : {
+    "info" : {
+      "password" : "P@ssw0rd123",
+      "securityQuestion" : "IN_WHAT_CITY_WERE_YOU_BORN",
+      "securityAnswer" : "New York City",
+      "userBooks" : [ ],
+      "cart" : {
+        "books" : null
+      },
+      "strikes" : 0
+    },
+    "user" : {
+      "firstName" : "Some",
+      "lastName" : "User",
+      "emailAddress" : "meet@patel.com",
+      "phoneNumber" : "3334445555",
+      "country" : "United States",
+      "state" : "New York",
+      "city" : "Elm"
+    }
+  }
+}

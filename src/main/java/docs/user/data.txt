@@ -1,0 +1,92 @@
+{
+  "1": {
+    "user": {
+      "firstName": "Meet",
+      "lastName": "Patel",
+      "emailAddress": "meet@patel.com",
+      "phoneNumber": "3334445555",
+      "country": "United States",
+      "state": "New York",
+      "city": "Elm"
+    },
+    "addInfo": {
+      "password": "P@ssw0rd123",
+      "securityQuestion": "IN_WHAT_CITY_WERE_YOU_BORN",
+      "securityAnswer": "New York City",
+      "userBooks": null,
+      "strikes": 0
+    }
+  },
+  "2": {
+    "user": {
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "emailAddress": "alice@example.com",
+      "phoneNumber": "5556667777",
+      "country": "United States",
+      "state": "California",
+      "city": "Los Angeles"
+    },
+    "addInfo": {
+      "password": "Secur3P@ss",
+      "securityQuestion": "WHAT_IS_YOUR_FAVORITE_BOOK",
+      "securityAnswer": "The Great Gatsby",
+      "userBooks": null,
+      "strikes": 0
+    }
+  },
+  "3": {
+    "user": {
+      "firstName": "John",
+      "lastName": "Smith",
+      "emailAddress": "john@example.com",
+      "phoneNumber": "1112223333",
+      "country": "United States",
+      "state": "Texas",
+      "city": "Austin"
+    },
+    "addInfo": {
+      "password": "MyP@ss123",
+      "securityQuestion": "WHAT_WAS_THE_NAME_OF_YOUR_FIRST_SCHOOL",
+      "securityAnswer": "Maple Elementary",
+      "userBooks": null,
+      "strikes": 0
+    }
+  },
+  "4": {
+    "user": {
+      "firstName": "Emily",
+      "lastName": "Davis",
+      "emailAddress": "emily@example.com",
+      "phoneNumber": "7778889999",
+      "country": "United States",
+      "state": "Illinois",
+      "city": "Chicago"
+    },
+    "addInfo": {
+      "password": "StrongP@ssword1",
+      "securityQuestion": "WHAT_WAS_THE_NAME_OF_YOUR_FIRST_PET",
+      "securityAnswer": "Fluffy",
+      "userBooks": null,
+      "strikes": 0
+    }
+  },
+  "5": {
+    "user": {
+      "firstName": "Michael",
+      "lastName": "Brown",
+      "emailAddress": "michael@example.com",
+      "phoneNumber": "4445556666",
+      "country": "United States",
+      "state": "Florida",
+      "city": "Miami"
+    },
+    "addInfo": {
+      "password": "P@ssword2023",
+      "securityQuestion": "WHAT_IS_YOUR_MOTHERS_MAIDEN_NAME",
+      "securityAnswer": "Johnson",
+      "userBooks": null,
+      "strikes": 0
+    }
+  }
+}

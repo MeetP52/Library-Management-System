@@ -1,0 +1,372 @@
+{
+  "-1946488904" : {
+    "book" : {
+      "title" : "The Scorch Trials",
+      "series" : "The Maze Runner (Book 2)",
+      "description" : "The group faces new challenges as they navigate a desolate landscape known as the Scorch.",
+      "authors" : [ "James Dashner" ],
+      "genres" : [ "Dystopian", "Science Fiction" ]
+    },
+    "quantity" : 20
+  },
+  "-618488671" : {
+    "book" : {
+      "title" : "The Lion, the Witch and the Wardrobe",
+      "series" : "The Chronicles of Narnia (Book 1)",
+      "description" : "Siblings discover a magical world and embark on a quest to break the witch's curse.",
+      "authors" : [ "C.S. Lewis" ],
+      "genres" : [ "Adventure", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-768851287" : {
+    "book" : {
+      "title" : "A Dance with Dragons",
+      "series" : "A Song of Ice and Fire (Book 5)",
+      "description" : "The fifth book continues the intricate narrative threads as characters across Westeros and Essos strive to assert their power.",
+      "authors" : [ "George R.R. Martin" ],
+      "genres" : [ "Epic", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-502790515" : {
+    "book" : {
+      "title" : "Allegiant",
+      "series" : "Divergent (Book 3)",
+      "description" : "Tris and her friends uncover the truth about their society and uncover a shocking revelation.",
+      "authors" : [ "Veronica Roth" ],
+      "genres" : [ "Dystopian", "Science Fiction" ]
+    },
+    "quantity" : 20
+  },
+  "1910094366" : {
+    "book" : {
+      "title" : "The Battle of the Labyrinth",
+      "series" : "Percy Jackson and the Olympians (Book 4)",
+      "description" : "Percy and his friends navigate a dangerous labyrinth and confront treacherous challenges.",
+      "authors" : [ "Rick Riordan" ],
+      "genres" : [ "Adventure", "Fantasy", "Mythology" ]
+    },
+    "quantity" : 20
+  },
+  "143408327" : {
+    "book" : {
+      "title" : "The Voyage of the Dawn Treader",
+      "series" : "The Chronicles of Narnia (Book 5)",
+      "description" : "Edmund, Lucy, and Eustace join King Caspian on a voyage to explore the Eastern Ocean and find missing lords.",
+      "authors" : [ "C.S. Lewis" ],
+      "genres" : [ "Adventure", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "803443379" : {
+    "book" : {
+      "title" : "Harry Potter and the Chamber of Secrets",
+      "series" : "Harry Potter (Book 2)",
+      "description" : "In his second year at Hogwarts, Harry faces a new mystery involving the Chamber of Secrets.",
+      "authors" : [ "J.K. Rowling" ],
+      "genres" : [ "Young Adult", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "1740453741" : {
+    "book" : {
+      "title" : "Catching Fire",
+      "series" : "The Hunger Games (Book 2)",
+      "description" : "Katniss becomes a symbol of resistance as the Capitol targets her in the aftermath of the Hunger Games.",
+      "authors" : [ "Suzanne Collins" ],
+      "genres" : [ "Dystopian", "Science Fiction" ]
+    },
+    "quantity" : 20
+  },
+  "1349244792" : {
+    "book" : {
+      "title" : "The Silver Chair",
+      "series" : "The Chronicles of Narnia (Book 4)",
+      "description" : "Eustace and Jill venture to rescue a missing prince from an enchanting underworld.",
+      "authors" : [ "C.S. Lewis" ],
+      "genres" : [ "Adventure", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "1166720734" : {
+    "book" : {
+      "title" : "The Sea of Monsters",
+      "series" : "Percy Jackson and the Olympians (Book 2)",
+      "description" : "Percy sets out on a perilous journey to save Camp Half-Blood and prevent the rise of an ancient evil.",
+      "authors" : [ "Rick Riordan" ],
+      "genres" : [ "Adventure", "Fantasy", "Mythology" ]
+    },
+    "quantity" : 20
+  },
+  "702043597" : {
+    "book" : {
+      "title" : "Harry Potter and the Goblet of Fire",
+      "series" : "Harry Potter (Book 4)",
+      "description" : "Harry's fourth year at Hogwarts takes an unexpected turn when he is entered into the dangerous Triwizard Tournament.",
+      "authors" : [ "J.K. Rowling" ],
+      "genres" : [ "Young Adult", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "1092151885" : {
+    "book" : {
+      "title" : "The Maze Runner",
+      "series" : "The Maze Runner (Book 1)",
+      "description" : "Thomas wakes up in a mysterious maze with no memory and joins a group of youths trying to escape.",
+      "authors" : [ "James Dashner" ],
+      "genres" : [ "Dystopian", "Science Fiction" ]
+    },
+    "quantity" : 20
+  },
+  "-626207878" : {
+    "book" : {
+      "title" : "The Hunger Games",
+      "series" : "The Hunger Games (Book 1)",
+      "description" : "In a dystopian nation, Katniss volunteers for the deadly Hunger Games and becomes a symbol of resistance.",
+      "authors" : [ "Suzanne Collins" ],
+      "genres" : [ "Dystopian", "Science Fiction" ]
+    },
+    "quantity" : 20
+  },
+  "-83625132" : {
+    "book" : {
+      "title" : "A Storm of Swords",
+      "series" : "A Song of Ice and Fire (Book 3)",
+      "description" : "The third book in the series takes the narrative to new heights of tension and drama.",
+      "authors" : [ "George R.R. Martin" ],
+      "genres" : [ "Epic", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "533182224" : {
+    "book" : {
+      "title" : "The Lightning Thief",
+      "series" : "Percy Jackson and the Olympians (Book 1)",
+      "description" : "Percy discovers he's a demigod and embarks on a quest to prevent a war among the gods.",
+      "authors" : [ "Rick Riordan" ],
+      "genres" : [ "Adventure", "Fantasy", "Mythology" ]
+    },
+    "quantity" : 20
+  },
+  "1482708599" : {
+    "book" : {
+      "title" : "The Horse and His Boy",
+      "series" : "The Chronicles of Narnia (Book 3)",
+      "description" : "A young boy and a talking horse embark on a journey of intrigue and discovery.",
+      "authors" : [ "C.S. Lewis" ],
+      "genres" : [ "Adventure", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "337917501" : {
+    "book" : {
+      "title" : "The Fellowship of the Ring",
+      "series" : "The Lord of the Rings (Book 1)",
+      "description" : "Frodo and the fellowship embark on a perilous journey to destroy the One Ring and save Middle-earth from Sauron's grasp.",
+      "authors" : [ "J.R.R. Tolkien" ],
+      "genres" : [ "Epic", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-1017192633" : {
+    "book" : {
+      "title" : "The Return of the King",
+      "series" : "The Lord of the Rings (Book 3)",
+      "description" : "The epic tale reaches its climactic conclusion as the forces of Middle-earth unite against Sauron's power.",
+      "authors" : [ "J.R.R. Tolkien" ],
+      "genres" : [ "Epic", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "762887332" : {
+    "book" : {
+      "title" : "The Titan's Curse",
+      "series" : "Percy Jackson and the Olympians (Book 3)",
+      "description" : "Percy and his friends must rescue a kidnapped friend and confront the plot of the Titans.",
+      "authors" : [ "Rick Riordan" ],
+      "genres" : [ "Adventure", "Fantasy", "Mythology" ]
+    },
+    "quantity" : 20
+  },
+  "1831501172" : {
+    "book" : {
+      "title" : "The Kill Order",
+      "series" : "The Maze Runner (Prequel)",
+      "description" : "The prequel reveals the origins of the virus that led to the events of the Maze Runner trilogy.",
+      "authors" : [ "James Dashner" ],
+      "genres" : [ "Dystopian", "Science Fiction" ]
+    },
+    "quantity" : 20
+  },
+  "-135332815" : {
+    "book" : {
+      "title" : "Mockingjay",
+      "series" : "The Hunger Games (Book 3)",
+      "description" : "The rebellion against the Capitol reaches its climax as Panem is engulfed in all-out war.",
+      "authors" : [ "Suzanne Collins" ],
+      "genres" : [ "Dystopian", "Science Fiction" ]
+    },
+    "quantity" : 20
+  },
+  "-489765393" : {
+    "book" : {
+      "title" : "Harry Potter and the Deathly Hallows",
+      "series" : "Harry Potter (Book 7)",
+      "description" : "In the final installment, Harry, Ron, and Hermione embark on a quest to destroy Voldemort's Horcruxes and end his reign.",
+      "authors" : [ "J.K. Rowling" ],
+      "genres" : [ "Young Adult", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-671290791" : {
+    "book" : {
+      "title" : "A Clash of Kings",
+      "series" : "A Song of Ice and Fire (Book 2)",
+      "description" : "As the War of the Five Kings rages on, the realm is plunged into chaos. Renly, Stannis, and Robb Stark all claim the Iron Throne, while Balon Greyjoy seeks independence for the Iron Islands. Amidst the battles and power plays, magic resurfaces in the form of shadow assassins and fire-breathing dragons. The characters find themselves faced with difficult choices and unexpected alliances, leading to a series of devastating conflicts that will forever shape the fate of Westeros.",
+      "authors" : [ "George R.R. Martin" ],
+      "genres" : [ "Epic", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-546559989" : {
+    "book" : {
+      "title" : "The Last Olympian",
+      "series" : "Percy Jackson and the Olympians (Book 5)",
+      "description" : "Percy faces the ultimate battle as the forces of darkness gather for a final showdown.",
+      "authors" : [ "Rick Riordan" ],
+      "genres" : [ "Adventure", "Fantasy", "Mythology" ]
+    },
+    "quantity" : 20
+  },
+  "-1313837609" : {
+    "book" : {
+      "title" : "Prince Caspian",
+      "series" : "The Chronicles of Narnia (Book 2)",
+      "description" : "The Pevensie siblings return to Narnia to restore its glory and face a new threat.",
+      "authors" : [ "C.S. Lewis" ],
+      "genres" : [ "Adventure", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-745407624" : {
+    "book" : {
+      "title" : "Harry Potter and the Sorcerer's Stone",
+      "series" : "Harry Potter (Book 1)",
+      "description" : "Young Harry Potter discovers he's a wizard and embarks on a journey at Hogwarts School of Witchcraft and Wizardry.",
+      "authors" : [ "J.K. Rowling" ],
+      "genres" : [ "Young Adult", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "1815081155" : {
+    "book" : {
+      "title" : "Harry Potter and the Order of the Phoenix",
+      "series" : "Harry Potter (Book 5)",
+      "description" : "In his fifth year, Harry returns to a wizarding world in turmoil and forms 'Dumbledore's Army' to resist the Ministry's control.",
+      "authors" : [ "J.K. Rowling" ],
+      "genres" : [ "Young Adult", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-654296466" : {
+    "book" : {
+      "title" : "Divergent",
+      "series" : "Divergent (Book 1)",
+      "description" : "In a future society, Tris discovers her Divergent nature and navigates dangerous initiation challenges.",
+      "authors" : [ "Veronica Roth" ],
+      "genres" : [ "Dystopian", "Science Fiction" ]
+    },
+    "quantity" : 20
+  },
+  "889454573" : {
+    "book" : {
+      "title" : "The Death Cure",
+      "series" : "The Maze Runner (Book 3)",
+      "description" : "Thomas and his friends confront the truth about their past and the deadly virus that has ravaged the world.",
+      "authors" : [ "James Dashner" ],
+      "genres" : [ "Dystopian", "Science Fiction" ]
+    },
+    "quantity" : 20
+  },
+  "-1036504119" : {
+    "book" : {
+      "title" : "The Two Towers",
+      "series" : "The Lord of the Rings (Book 2)",
+      "description" : "The fellowship is divided as Frodo and Sam journey toward Mordor and Aragorn and his companions fight against Sauron's forces.",
+      "authors" : [ "J.R.R. Tolkien" ],
+      "genres" : [ "Epic", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "1452713508" : {
+    "book" : {
+      "title" : "The Last Battle",
+      "series" : "The Chronicles of Narnia (Book 6)",
+      "description" : "Narnia faces upheaval as a false Aslan deceives and enslaves the land, leading to a final battle between good and evil.",
+      "authors" : [ "C.S. Lewis" ],
+      "genres" : [ "Adventure", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-78721158" : {
+    "book" : {
+      "title" : "Harry Potter and the Half-Blood Prince",
+      "series" : "Harry Potter (Book 6)",
+      "description" : "As Voldemort's power increases, Harry uncovers the history of Horcruxes and prepares for the ultimate battle.",
+      "authors" : [ "J.K. Rowling" ],
+      "genres" : [ "Young Adult", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-1047104222" : {
+    "book" : {
+      "title" : "The Hobbit",
+      "series" : "The Hobbit",
+      "description" : "Bilbo Baggins joins a group of dwarves on a quest to reclaim their homeland from the dragon Smaug.",
+      "authors" : [ "J.R.R. Tolkien" ],
+      "genres" : [ "Adventure", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-577276946" : {
+    "book" : {
+      "title" : "A Game of Thrones",
+      "series" : "A Song of Ice and Fire (Book 1)",
+      "description" : "In the land of Westeros, the noble houses vie for control of the Iron Throne and the Seven Kingdoms. Eddard 'Ned' Stark, the lord of Winterfell, becomes entangled in a web of political intrigue and betrayal after he is appointed Hand of the King. Meanwhile, across the sea, Daenerys Targaryen begins her journey to reclaim the throne of her ancestors, accompanied by three newly hatched dragons. As alliances are forged and broken, and power plays lead to shocking betrayals, a brutal and complex game unfolds, where anyone can be a pawn or a player in the struggle for power.",
+      "authors" : [ "George R.R. Martin" ],
+      "genres" : [ "Epic", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "1331364896" : {
+    "book" : {
+      "title" : "Insurgent",
+      "series" : "Divergent (Book 2)",
+      "description" : "Tris and Four challenge the oppressive regime and uncover shocking truths about their world.",
+      "authors" : [ "Veronica Roth" ],
+      "genres" : [ "Dystopian", "Science Fiction" ]
+    },
+    "quantity" : 20
+  },
+  "58325703" : {
+    "book" : {
+      "title" : "Harry Potter and the Prisoner of Azkaban",
+      "series" : "Harry Potter (Book 3)",
+      "description" : "In his third year, Harry learns about Sirius Black and faces Dementors and time-traveling adventures.",
+      "authors" : [ "J.K. Rowling" ],
+      "genres" : [ "Young Adult", "Fantasy" ]
+    },
+    "quantity" : 20
+  },
+  "-1540612653" : {
+    "book" : {
+      "title" : "A Feast for Crows",
+      "series" : "A Song of Ice and Fire (Book 4)",
+      "description" : "With the realm reeling from the events of the previous book, the fourth installment narrows its focus.",
+      "authors" : [ "George R.R. Martin" ],
+      "genres" : [ "Epic", "Fantasy" ]
+    },
+    "quantity" : 20
+  }
+}
