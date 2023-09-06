@@ -1,5 +1,7 @@
 package dev.admin;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.book.Book;
 import dev.book.BookCatalog;
 import dev.user.AddInfo;
@@ -15,7 +17,9 @@ public class Admin {
 
     public Admin() {};
 
-    public Admin(User user,AddInfo info) {
+    @JsonCreator
+    public Admin(@JsonProperty("user") User user,
+                 @JsonProperty("info") AddInfo info) {
         this.admin = user;
         this.info = info;
     }
@@ -26,10 +30,7 @@ public class Admin {
     }
 
     protected Admin(Admin admin) {
-        if(!this.equals(admin)) {
-            this.admin = admin.admin.copy("deep");
-
-        }
+        this.admin = admin.admin.copy("deep");
     }
 
     public User getUser() {
@@ -73,7 +74,7 @@ public class Admin {
     public boolean removeBookToCatalog(List<Book> books) {
         BookCatalog catalog = BookCatalog.getBookCatalog();
         for(Book book : books) {
-            if(!catalog.removeBook(catalog.findBook(book))) {
+            if(!catalog.removeBook(book)) {
                 System.out.println("Error removing "+ book.getTitle() +" from catalog.");
                 return false;
             }

@@ -3,6 +3,7 @@ package dev.user;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -26,11 +27,12 @@ public class UserCatalog {
     }
 
     private void generateUserData() {
-        String absFilePath = "E:\\Code\\Intellij\\User\\src\\main\\java\\docs\\user\\data.txt";
+        String absFilePath = "E:\\Code\\Intellij\\User\\src\\main\\java\\docs\\user\\UserData.txt";
 
         try(FileReader reader = new FileReader(absFilePath)) {
             BufferedReader bufferedReader = new BufferedReader(reader);
             ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModules(new JavaTimeModule());
             JsonNode rootNode = mapper.readTree(bufferedReader);
 
             Iterator<Map.Entry<String, JsonNode>> fields = rootNode.fields();
@@ -55,6 +57,7 @@ public class UserCatalog {
 
         try(FileWriter writer = new FileWriter(absFilePath)) {
             ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModules(new JavaTimeModule());
             ObjectWriter jsonWriter = mapper.writerWithDefaultPrettyPrinter();
             jsonWriter.writeValue(writer,users);
         } catch (IOException e) {

@@ -1,5 +1,8 @@
 package dev.user;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class UserCatalogItem {
@@ -8,7 +11,9 @@ public class UserCatalogItem {
 
     public UserCatalogItem() {};
 
-    public UserCatalogItem(User user, AddInfo addInfo) {
+    @JsonCreator
+    public UserCatalogItem(@JsonProperty("user") User user,
+                           @JsonProperty("addInfo") AddInfo addInfo) {
         this.user = user;
         this.addInfo = addInfo;
     }

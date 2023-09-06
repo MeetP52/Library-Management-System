@@ -1,15 +1,5 @@
 {
   "0" : {
-    "info" : {
-      "password" : "Secur3P@ss",
-      "securityQuestion" : "WHAT_IS_YOUR_FAVORITE_BOOK",
-      "securityAnswer" : "The Great Gatsby",
-      "userBooks" : [ ],
-      "cart" : {
-        "books" : null
-      },
-      "strikes" : 0
-    },
     "user" : {
       "firstName" : "Alice",
       "lastName" : "Johnson",
@@ -18,19 +8,19 @@
       "country" : "United States",
       "state" : "California",
       "city" : "Los Angeles"
+    },
+    "info" : {
+      "password" : "Secur3P@ss",
+      "securityQuestion" : "WHAT_IS_YOUR_FAVORITE_BOOK",
+      "securityAnswer" : "The Great Gatsby",
+      "userBooks" : [ ],
+      "cart" : {
+        "books" : [ ]
+      },
+      "strikes" : 0
     }
   },
   "-1121245852" : {
-    "info" : {
-      "password" : "P@ssw0rd123",
-      "securityQuestion" : "IN_WHAT_CITY_WERE_YOU_BORN",
-      "securityAnswer" : "New York City",
-      "userBooks" : [ ],
-      "cart" : {
-        "books" : null
-      },
-      "strikes" : 0
-    },
     "user" : {
       "firstName" : "Some",
       "lastName" : "User",
@@ -39,6 +29,16 @@
       "country" : "United States",
       "state" : "New York",
       "city" : "Elm"
+    },
+    "info" : {
+      "password" : "P@ssw0rd123",
+      "securityQuestion" : "IN_WHAT_CITY_WERE_YOU_BORN",
+      "securityAnswer" : "New York City",
+      "userBooks" : [ ],
+      "cart" : {
+        "books" : [ ]
+      },
+      "strikes" : 0
     }
   }
 }

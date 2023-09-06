@@ -13,9 +13,9 @@
       "password" : "MyP@ss123",
       "securityQuestion" : "WHAT_WAS_THE_NAME_OF_YOUR_FIRST_SCHOOL",
       "securityAnswer" : "Maple Elementary",
-      "userBooks" : null,
+      "userBooks" : [ ],
       "cart" : {
-        "books" : null
+        "books" : [ ]
       },
       "strikes" : 0
     }
@@ -34,9 +34,9 @@
       "password" : "Secur3P@ss",
       "securityQuestion" : "WHAT_IS_YOUR_FAVORITE_BOOK",
       "securityAnswer" : "The Great Gatsby",
-      "userBooks" : null,
+      "userBooks" : [ ],
       "cart" : {
-        "books" : null
+        "books" : [ ]
       },
       "strikes" : 0
     }
@@ -55,9 +55,9 @@
       "password" : "StrongP@ssword1",
       "securityQuestion" : "WHAT_WAS_THE_NAME_OF_YOUR_FIRST_PET",
       "securityAnswer" : "Fluffy",
-      "userBooks" : null,
+      "userBooks" : [ ],
       "cart" : {
-        "books" : null
+        "books" : [ ]
       },
       "strikes" : 0
     }
@@ -76,9 +76,9 @@
       "password" : "P@ssword2023",
       "securityQuestion" : "WHAT_IS_YOUR_MOTHERS_MAIDEN_NAME",
       "securityAnswer" : "Johnson",
-      "userBooks" : null,
+      "userBooks" : [ ],
       "cart" : {
-        "books" : null
+        "books" : [ ]
       },
       "strikes" : 0
     }
@@ -97,9 +97,149 @@
       "password" : "P@ssw0rd123",
       "securityQuestion" : "IN_WHAT_CITY_WERE_YOU_BORN",
       "securityAnswer" : "New York City",
-      "userBooks" : null,
+      "userBooks" : [ {
+        "book" : {
+          "title" : "Harry Potter and the Chamber of Secrets",
+          "series" : "Harry Potter (Book 2)",
+          "description" : "In his second year at Hogwarts, Harry faces a new mystery involving the Chamber of Secrets.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Young Adult", "Fantasy" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Deathly Hallows",
+          "series" : "Harry Potter (Book 7)",
+          "description" : "In the final installment, Harry, Ron, and Hermione embark on a quest to destroy Voldemort's Horcruxes and end his reign.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Young Adult", "Fantasy" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Half-Blood Prince",
+          "series" : "Harry Potter (Book 6)",
+          "description" : "As Voldemort's power increases, Harry uncovers the history of Horcruxes and prepares for the ultimate battle.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Young Adult", "Fantasy" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Goblet of Fire",
+          "series" : "Harry Potter (Book 4)",
+          "description" : "Harry's fourth year at Hogwarts takes an unexpected turn when he is entered into the dangerous Triwizard Tournament.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Young Adult", "Fantasy" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Sorcerer's Stone",
+          "series" : "Harry Potter (Book 1)",
+          "description" : "Young Harry Potter discovers he's a wizard and embarks on a journey at Hogwarts School of Witchcraft and Wizardry.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Young Adult", "Fantasy" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Order of the Phoenix",
+          "series" : "Harry Potter (Book 5)",
+          "description" : "In his fifth year, Harry returns to a wizarding world in turmoil and forms 'Dumbledore's Army' to resist the Ministry's control.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Young Adult", "Fantasy" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Prisoner of Azkaban",
+          "series" : "Harry Potter (Book 3)",
+          "description" : "In his third year, Harry learns about Sirius Black and faces Dementors and time-traveling adventures.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Young Adult", "Fantasy" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Chamber of Secrets",
+          "series" : "Harry Potter (Book 2)",
+          "description" : "In his second year at Hogwarts, Harry faces a new mystery involving the Chamber of Secrets.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Fantasy", "Young Adult" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Deathly Hallows",
+          "series" : "Harry Potter (Book 7)",
+          "description" : "In the final installment, Harry, Ron, and Hermione embark on a quest to destroy Voldemort's Horcruxes and end his reign.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Fantasy", "Young Adult" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Half-Blood Prince",
+          "series" : "Harry Potter (Book 6)",
+          "description" : "As Voldemort's power increases, Harry uncovers the history of Horcruxes and prepares for the ultimate battle.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Fantasy", "Young Adult" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Goblet of Fire",
+          "series" : "Harry Potter (Book 4)",
+          "description" : "Harry's fourth year at Hogwarts takes an unexpected turn when he is entered into the dangerous Triwizard Tournament.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Fantasy", "Young Adult" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Sorcerer's Stone",
+          "series" : "Harry Potter (Book 1)",
+          "description" : "Young Harry Potter discovers he's a wizard and embarks on a journey at Hogwarts School of Witchcraft and Wizardry.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Fantasy", "Young Adult" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Order of the Phoenix",
+          "series" : "Harry Potter (Book 5)",
+          "description" : "In his fifth year, Harry returns to a wizarding world in turmoil and forms 'Dumbledore's Army' to resist the Ministry's control.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Fantasy", "Young Adult" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Prisoner of Azkaban",
+          "series" : "Harry Potter (Book 3)",
+          "description" : "In his third year, Harry learns about Sirius Black and faces Dementors and time-traveling adventures.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Fantasy", "Young Adult" ]
+        },
+        "pickUpDate" : "2023-09-06",
+        "dueDate" : "2023-10-06"
+      } ],
       "cart" : {
-        "books" : null
+        "books" : [ ]
       },
       "strikes" : 0
     }

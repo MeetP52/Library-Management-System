@@ -1,49 +1,90 @@
 package dev.cart;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.book.Book;
+import dev.book.BookCatalog;
 import dev.book.BookCatalogItem;
+import dev.user.UserBook;
+import dev.user.UserCatalogItem;
 
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 public class Cart {
-    private Set<Book> books;
+    private List<Book> books;
 
-    public Cart() {};
+    public Cart() {
+        books = new LinkedList<>();
+    };
 
-    public Cart(Set<Book> books) {
-        this.books = books;
+    @JsonCreator
+    public Cart(@JsonProperty("books") List<Book> books) {
+        this.books = (books == null) ? new LinkedList<>() : books;
     }
 
     public Cart(Cart cart) {
         if(!this.equals(cart)) {
-            this.books = Set.copyOf(cart.books);
+            this.books = List.copyOf(cart.books);
         }
     }
 
-    public Set<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(Set<Book> books) {
+    public void setBooks(List<Book> books) {
         this.books = books;
     }
 
-    public boolean addBooks(List<BookCatalogItem> bookList) {
-        for(BookCatalogItem book : bookList) {
-            books.add(book.getBook());
+    public boolean addBooks(List<Book> bookList) {
+        BookCatalog catalog = BookCatalog.getBookCatalog();
+        if(!setup(bookList,1)) return false;
+        for(Book book : bookList) {
+            books.add(catalog.findBook(book));
         }
         return true;
     }
 
-    public boolean removeBooks(List<BookCatalogItem> bookList) {
-        for(BookCatalogItem book : bookList) {
-            books.remove(book.getBook());
+    public boolean removeBooks(List<Book> bookList) {
+        BookCatalog catalog = BookCatalog.getBookCatalog();
+        if(!setup(bookList,20)) return false;
+        for(Book book : bookList) {
+            books.remove(catalog.findBook(book));
         }
         return true;
     }
 
-    public void cechkout() {};
+    public boolean cechkout(UserCatalogItem user) {
+        if(!setup(books,1)) {
+            return false;
+        }
+        BookCatalog catalog = BookCatalog.getBookCatalog();
+        for(Book book : books) {
+            if(catalog.checkout(book)) {
+                user.getAddInfo().getUserBooks().add(new UserBook(book));
+            }
+        }
+        books.clear();
+        return true;
+    }
+
+    private boolean setup(List<Book> bookList, int minQuanity) {
+        BookCatalog catalog = BookCatalog.getBookCatalog();
+        BookCatalogItem item;
+        for(Book book : bookList) {
+            item = catalog.findBookItem(book);
+            if(item == null) {
+                return false;
+            } else {
+                if(item.getQuantity() < minQuanity) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 
     public Cart copy(String type) {
         if(type.equals("deep")) {

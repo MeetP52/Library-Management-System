@@ -1,5 +1,7 @@
 package dev.user;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.cart.Cart;
 
 import java.util.*;
@@ -8,13 +10,13 @@ public class AddInfo {
     private String password;
     private SecurityQuestion securityQuestion;
     private String securityAnswer;
-    private Set<UserBook> userBooks;
+    private List<UserBook> userBooks;
     private Cart cart;
     private int strikes = 0;
     public AddInfo () {
         password = "";
         securityAnswer = "";
-        userBooks = new HashSet<>();
+        userBooks = new LinkedList<>();
         cart = new Cart();
         strikes = 0;
     };
@@ -25,22 +27,35 @@ public class AddInfo {
         }
         this.securityQuestion = securityQuestion;
         this.securityAnswer = securityAnswer;
-        this.userBooks = new HashSet<>();
+        this.userBooks = new LinkedList<>();
         this.cart = new Cart();
         this.strikes = 0;
     }
 
+    @JsonCreator
+    public AddInfo(@JsonProperty("password") String password,
+                   @JsonProperty("securityQuestion") SecurityQuestion securityQuestion,
+                   @JsonProperty("securityAnswer") String securityAnswer,
+                   @JsonProperty("userBooks") List<UserBook> userBooks,
+                   @JsonProperty("cart") Cart cart,
+                   @JsonProperty("strikes") int strikes) {
+        this.password = password;
+        this.securityQuestion = securityQuestion;
+        this.securityAnswer = securityAnswer;
+        this.userBooks = (userBooks == null) ? new LinkedList<>() : userBooks;
+        this.cart = (cart == null) ? new Cart() : cart;
+        this.strikes = strikes;
+    }
+
     protected AddInfo(AddInfo addInfo) {
-        if(!this.equals(addInfo)) {
-            if (!this.setPassword(addInfo.password)) {
-                System.out.println("Invalid password");
-            }
-            this.securityQuestion = addInfo.securityQuestion;
-            this.securityAnswer = addInfo.securityAnswer;
-            this.userBooks = (addInfo.userBooks == null) ? new HashSet<>() : Set.copyOf(addInfo.userBooks);
-            this.cart = addInfo.cart.copy("deep");
-            this.strikes = addInfo.strikes;
+        if (!this.setPassword(addInfo.password)) {
+            System.out.println("Invalid password");
         }
+        this.securityQuestion = addInfo.securityQuestion;
+        this.securityAnswer = addInfo.securityAnswer;
+        this.userBooks = (addInfo.userBooks == null) ? new LinkedList<>() : List.copyOf(addInfo.userBooks);
+        this.cart = (addInfo.cart == null) ? new Cart() : addInfo.cart.copy("deep");
+        this.strikes = addInfo.strikes;
     }
 
     public boolean setPassword(String password) {
@@ -69,7 +84,7 @@ public class AddInfo {
         return true;
     }
 
-    public boolean setUserBooks(Set<UserBook> userBooks) {
+    public boolean setUserBooks(List<UserBook> userBooks) {
         this.userBooks = userBooks;
         return true;
     }
@@ -91,7 +106,7 @@ public class AddInfo {
         return securityAnswer;
     }
 
-    public Set<UserBook> getUserBooks() {
+    public List<UserBook> getUserBooks() {
         return userBooks;
     }
 
@@ -107,17 +122,17 @@ public class AddInfo {
         this.cart = cart;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AddInfo addInfo = (AddInfo) o;
-
-        if (!getPassword().equals(addInfo.getPassword())) return false;
-        if (getSecurityQuestion() != addInfo.getSecurityQuestion()) return false;
-        return getSecurityAnswer().equals(addInfo.getSecurityAnswer());
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        AddInfo addInfo = (AddInfo) o;
+//
+//        if (!getPassword().equals(addInfo.getPassword())) return false;
+//        if (getSecurityQuestion() != addInfo.getSecurityQuestion()) return false;
+//        return getSecurityAnswer().equals(addInfo.getSecurityAnswer());
+//    }
 
     public AddInfo copy(String type) {
         AddInfo addInfo;

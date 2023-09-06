@@ -1,12 +1,17 @@
 package dev.book;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BookCatalogItem {
     private Book book;
     private int quantity;
 
     public BookCatalogItem() {};
 
-    public BookCatalogItem(Book book, int quantity) {
+    @JsonCreator
+    public BookCatalogItem(@JsonProperty("book") Book book,
+                           @JsonProperty("quantity") int quantity) {
         this.book = book;
         this.quantity = quantity;
     }
@@ -37,6 +42,22 @@ public class BookCatalogItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public boolean addQuantity(int quantity) {
+        if(this.quantity + quantity > 20) {
+            return false;
+        }
+        this.quantity += quantity;
+        return true;
+    }
+
+    public boolean removeQuantity(int quantity) {
+        if(quantity > this.quantity || quantity <= 0) {
+            return false;
+        }
+        this.quantity -= quantity;
+        return true;
     }
 
     @Override

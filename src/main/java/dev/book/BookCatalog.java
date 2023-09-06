@@ -87,15 +87,15 @@ public class BookCatalog {
         return book.hashCode();
     }
 
-    public BookCatalogItem findBook(int bookId) {
-        return books.get(bookId);
+    public Book findBook(int bookId) {
+        return books.get(bookId).getBook().copy("deep");
     }
 
-    public BookCatalogItem findBook(Book book) {
+    public Book findBook(Book book) {
         return findBook(findBookId(book));
     }
 
-    public List<BookCatalogItem> findBook(String value) {
+    public List<Book> findBook(String value) {
         Set<Integer> ids = titleTrie.find(value);
         if(ids.isEmpty()) {
             ids = seriesTrie.find(value);
@@ -109,9 +109,13 @@ public class BookCatalog {
         if(ids.isEmpty()) {
             return null;
         }
-        List<BookCatalogItem> results = new LinkedList<>();
-        ids.forEach(i -> results.add(books.get(i).copy("deep")));
+        List<Book> results = new LinkedList<>();
+        ids.forEach(i -> results.add(books.get(i).getBook().copy("deep")));
         return results;
+    }
+
+    public BookCatalogItem findBookItem(Book book) {
+        return books.get(findBookId(book)).copy("deep");
     }
 
     public boolean addBook(Book book) {
@@ -122,11 +126,18 @@ public class BookCatalog {
         return true;
     }
 
-    public boolean removeBook(BookCatalogItem book) {
+    public boolean removeBook(Book book) {
         if(books.containsKey(book.hashCode())) {
-            return books.remove(book.hashCode(),book);
+            return books.remove(book.hashCode(),books.get(book.hashCode()));
         }
         return false;
+    }
+
+    public boolean checkout(Book book) {
+        if(findBook(book) == null) {
+            return false;
+        }
+       return books.get(findBookId(book)).removeQuantity(1);
     }
 
 

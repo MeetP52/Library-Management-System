@@ -1,5 +1,8 @@
 package dev.user;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class User {
@@ -13,7 +16,14 @@ public class User {
 
     public User() {};
 
-    public User(String firstName, String lastName, String emailAddress, String phoneNumber, String country, String state, String city) {
+    @JsonCreator
+    public User(@JsonProperty("firstName") String firstName,
+                @JsonProperty("lastName") String lastName,
+                @JsonProperty("emailAddress") String emailAddress,
+                @JsonProperty("phoneNumber") String phoneNumber,
+                @JsonProperty("country") String country,
+                @JsonProperty("state") String state,
+                @JsonProperty("city") String city) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.setEmailAddress(emailAddress);
@@ -24,15 +34,13 @@ public class User {
     }
 
     public User(User user) {
-        if(!this.equals(user)) {
-            this.firstName = user.firstName;
-            this.lastName = user.lastName;
-            this.setEmailAddress(user.emailAddress);
-            this.setPhoneNumber(user.phoneNumber);
-            this.country = user.country;
-            this.state = user.state;
-            this.city = user.city;
-        }
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.setEmailAddress(user.emailAddress);
+        this.setPhoneNumber(user.phoneNumber);
+        this.country = user.country;
+        this.state = user.state;
+        this.city = user.city;
     }
 
     public String getFirstName() {

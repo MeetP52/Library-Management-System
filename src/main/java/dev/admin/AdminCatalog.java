@@ -3,6 +3,7 @@ package dev.admin;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -31,6 +32,7 @@ public class AdminCatalog {
         try(FileReader reader = new FileReader(absFilePath)) {
             BufferedReader bufferedReader = new BufferedReader(reader);
             ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModules(new JavaTimeModule());
             JsonNode rootNode = mapper.readTree(bufferedReader);
 
             Iterator<Map.Entry<String, JsonNode>> fields = rootNode.fields();
@@ -46,7 +48,7 @@ public class AdminCatalog {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } finally {
-            System.out.println("Done Creating Users");
+            System.out.println("Done Creating Admin Users");
         }
     }
 
@@ -55,6 +57,7 @@ public class AdminCatalog {
 
         try(FileWriter writer = new FileWriter(absFilePath)) {
             ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModules(new JavaTimeModule());
             ObjectWriter jsonWriter = mapper.writerWithDefaultPrettyPrinter();
             jsonWriter.writeValue(writer,admins);
         } catch (IOException e) {

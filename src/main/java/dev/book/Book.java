@@ -1,5 +1,8 @@
 package dev.book;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,12 +18,17 @@ public class Book {
         this.genres = new HashSet<>();
     }
 
-    public Book(String title, String series, String description, Set<String> authors, Set<String> genres) {
+    @JsonCreator
+    public Book(@JsonProperty("title") String title,
+                @JsonProperty("series") String series,
+                @JsonProperty("description") String description,
+                @JsonProperty("authors") Set<String> authors,
+                @JsonProperty("genres") Set<String> genres) {
         this.title = title;
         this.series = series;
         this.description = description;
-        this.authors = authors;
-        this.genres = genres;
+        this.authors = (authors == null) ? new HashSet<>() : authors ;
+        this.genres = (genres == null) ? new HashSet<>() : genres;
     }
 
     protected Book(Book book) {

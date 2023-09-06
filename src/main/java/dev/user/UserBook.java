@@ -1,6 +1,9 @@
 package dev.user;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.book.Book;
 
 import java.time.LocalDate;
@@ -8,7 +11,9 @@ import java.util.Objects;
 
 public class UserBook {
     private Book book;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
 
     public UserBook () {};
@@ -25,28 +30,43 @@ public class UserBook {
         this.dueDate = dueDate;
     }
 
+    @JsonCreator
+    public UserBook(@JsonProperty("book") Book book,
+                    @JsonProperty("pickUpDate") LocalDate pickUpDate,
+                    @JsonProperty("dueDate") LocalDate dueDate) {
+        this.book = book;
+        this.pickUpDate = pickUpDate;
+        this.dueDate = dueDate;
+    }
+
     protected UserBook(UserBook userBook) {
         this.book = userBook.book.copy("deep");
         this.pickUpDate = LocalDate.of(userBook.pickUpDate.getYear(),userBook.pickUpDate.getMonth(),userBook.pickUpDate.getDayOfMonth());
         this.dueDate = LocalDate.of(userBook.dueDate.getYear(),userBook.dueDate.getMonth(),userBook.dueDate.getDayOfMonth());
     }
 
-
-    public boolean setdueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
-        return true;
+    public Book getBook() {
+        return book;
     }
 
-    public LocalDate getpickUpDate() {
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public LocalDate getPickUpDate() {
         return pickUpDate;
+    }
+
+    public void setPickUpDate(LocalDate pickUpDate) {
+        this.pickUpDate = pickUpDate;
     }
 
     public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public Book getBook() {
-        return book;
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 
     public UserBook copy(String type) {
