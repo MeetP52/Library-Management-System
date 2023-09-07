@@ -227,6 +227,8 @@ Concepts Used:
 - Regex
 - File I/O
 - OOP
+- Collections
+- Generics
 
 Tools:
 - IntelliJ
