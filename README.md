@@ -220,6 +220,27 @@ Fields:
 - Map<Integer,Admin> admins = new HashMap<>()
 - static AdminCatalog catalog
 
+## Intro cont.
+Concepts Used:
+- Streams
+- Lambdas
+- Regex
+- File I/O
+- OOP
+
+Tools:
+- IntelliJ
+- Trello
+- Lucid Chart
+- Excalidraw
+
+Technologies:
+- Java
+- JSON
+- Jackson
+- JUnit5
+- Maven
+
 
 # Tests
 At the time of writing, all classes have been tested via unit tests. Which are included within the project file.
