@@ -1,9 +1,9 @@
 package dev.trie;
 
-import java.util.Set;
+import java.util.*;
 
 public class Trie {
-    private TrieNode root;
+    private final TrieNode root;
 
     public Trie() {
         this.root = new TrieNode('0',false);

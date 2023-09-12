@@ -12,18 +12,18 @@ public class AddInfo {
     private String securityAnswer;
     private List<UserBook> userBooks;
     private Cart cart;
-    private int strikes = 0;
+    private int strikes;
     public AddInfo () {
         password = "";
         securityAnswer = "";
         userBooks = new LinkedList<>();
         cart = new Cart();
         strikes = 0;
-    };
+    }
 
     public AddInfo(String password, SecurityQuestion securityQuestion, String securityAnswer) {
         if(!this.setPassword(password)) {
-            System.out.println("Invalid password");
+            this.password = "Invalid Password.";
         }
         this.securityQuestion = securityQuestion;
         this.securityAnswer = securityAnswer;
@@ -39,7 +39,9 @@ public class AddInfo {
                    @JsonProperty("userBooks") List<UserBook> userBooks,
                    @JsonProperty("cart") Cart cart,
                    @JsonProperty("strikes") int strikes) {
-        this.password = password;
+        if (!this.setPassword(password)) {
+            this.password = "Invalid Password.";
+        }
         this.securityQuestion = securityQuestion;
         this.securityAnswer = securityAnswer;
         this.userBooks = (userBooks == null) ? new LinkedList<>() : userBooks;
@@ -49,12 +51,12 @@ public class AddInfo {
 
     protected AddInfo(AddInfo addInfo) {
         if (!this.setPassword(addInfo.password)) {
-            System.out.println("Invalid password");
+            this.password = "Invalid Password.";
         }
         this.securityQuestion = addInfo.securityQuestion;
         this.securityAnswer = addInfo.securityAnswer;
-        this.userBooks = (addInfo.userBooks == null) ? new LinkedList<>() : List.copyOf(addInfo.userBooks);
-        this.cart = (addInfo.cart == null) ? new Cart() : addInfo.cart.copy("deep");
+        this.userBooks = new LinkedList<>(addInfo.userBooks);
+        this.cart = new Cart(addInfo.cart);
         this.strikes = addInfo.strikes;
     }
 
@@ -67,6 +69,7 @@ public class AddInfo {
     }
 
     public boolean tryPassword(String password) {
+        if(password == null || password.isBlank()) return false;
         String passwordRegularExpression = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&*!])[A-Za-z\\d@#$%^&*!]{8,}$";
         if(!password.matches(passwordRegularExpression)) {
             System.out.println("Invalid Password, Make use of Upper and Lower case characters, as well as numbers and special symbols. Minimum password length is 8.");
@@ -135,11 +138,10 @@ public class AddInfo {
 //    }
 
     public AddInfo copy(String type) {
-        AddInfo addInfo;
         if(type.equals("deep")) {
-            return addInfo = new AddInfo(this);
+            return  new AddInfo(this);
         }
-        return addInfo = this;
+        return this;
     }
 
     @Override

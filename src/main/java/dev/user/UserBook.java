@@ -16,7 +16,7 @@ public class UserBook {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
 
-    public UserBook () {};
+    public UserBook () {}
 
     public UserBook(Book book) {
         this.book = book;
@@ -70,11 +70,10 @@ public class UserBook {
     }
 
     public UserBook copy(String type) {
-        UserBook userBook;
         if(type.equals("deep")) {
-            return userBook = new UserBook(this);
+            return  new UserBook(this);
         }
-        return userBook = this;
+        return this;
     }
 
     @Override

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class BookCatalog {
-    private Map<Integer,BookCatalogItem> books;
+    private final Map<Integer,BookCatalogItem> books;
     private static BookCatalog catalog;
     private Trie titleTrie;
     private Trie seriesTrie;
@@ -88,11 +88,11 @@ public class BookCatalog {
     }
 
     public Book findBook(int bookId) {
-        return books.get(bookId).getBook().copy("deep");
+        return (books.get(bookId) != null) ? books.get(bookId).getBook().copy("deep") : null;
     }
 
     public Book findBook(Book book) {
-        return findBook(findBookId(book));
+        return (!books.containsKey(findBookId(book))) ? null : findBook(findBookId(book));
     }
 
     public List<Book> findBook(String value) {
@@ -110,12 +110,16 @@ public class BookCatalog {
             return null;
         }
         List<Book> results = new LinkedList<>();
-        ids.forEach(i -> results.add(books.get(i).getBook().copy("deep")));
+        ids.forEach(i -> {
+            if(books.containsKey(i)) {
+                results.add(books.get(i).getBook().copy("deep"));
+            }
+        });
         return results;
     }
 
     public BookCatalogItem findBookItem(Book book) {
-        return books.get(findBookId(book)).copy("deep");
+       return (findBook(findBookId(book)) == null) ? null : books.get(findBookId(book)).copy("deep");
     }
 
     public boolean addBook(Book book) {
@@ -123,14 +127,41 @@ public class BookCatalog {
             return false;
         }
         books.put(book.hashCode(),new BookCatalogItem(book));
+        addTrieNode(book,book.hashCode());
         return true;
     }
 
     public boolean removeBook(Book book) {
-        if(books.containsKey(book.hashCode())) {
-            return books.remove(book.hashCode(),books.get(book.hashCode()));
+        if(!books.containsKey(book.hashCode())) {
+            return false;
         }
-        return false;
+        books.remove(book.hashCode(),books.get(book.hashCode()));
+        removeTrieNode(book,book.hashCode());
+        return true;
+    }
+
+    public boolean addTrieNode(Book book, int id) {
+        titleTrie.insert(book.getTitle(),id);
+        seriesTrie.insert(book.getSeries(),id);
+        book.getAuthors().forEach(author -> {
+            authorTrie.insert(author,id);
+        });
+        book.getGenres().forEach(genre -> {
+            genreTrie.insert(genre,id);
+        });
+        return true;
+    }
+
+    public boolean removeTrieNode(Book book, int id) {
+        titleTrie.remove(book.getTitle(),id);
+        seriesTrie.remove(book.getSeries(),id);
+        book.getAuthors().forEach(author -> {
+            authorTrie.remove(author,id);
+        });
+        book.getGenres().forEach(genre -> {
+            genreTrie.remove(genre,id);
+        });
+        return true;
     }
 
     public boolean checkout(Book book) {

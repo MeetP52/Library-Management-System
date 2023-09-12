@@ -8,7 +8,7 @@ import java.util.Set;
 public class TrieNode {
     private char ch;
     private boolean wordEndChar;
-    private Map<Character, TrieNode> childNodes;
+    private final Map<Character, TrieNode> childNodes;
     private Set<Integer> books;
 
     public TrieNode() {

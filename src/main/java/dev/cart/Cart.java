@@ -16,7 +16,7 @@ public class Cart {
 
     public Cart() {
         books = new LinkedList<>();
-    };
+    }
 
     @JsonCreator
     public Cart(@JsonProperty("books") List<Book> books) {
@@ -24,9 +24,7 @@ public class Cart {
     }
 
     public Cart(Cart cart) {
-        if(!this.equals(cart)) {
-            this.books = List.copyOf(cart.books);
-        }
+        this.books = new LinkedList<>(cart.books);
     }
 
     public List<Book> getBooks() {
@@ -55,7 +53,7 @@ public class Cart {
         return true;
     }
 
-    public boolean cechkout(UserCatalogItem user) {
+    public boolean checkout(UserCatalogItem user) {
         if(!setup(books,1)) {
             return false;
         }
@@ -96,7 +94,7 @@ public class Cart {
     @Override
     public String toString() {
         return "Cart {" +
-                "\n\tbooks = " + books + "\n" +
+                "\n\t\t\tbooks = " + books + "\n\t\t" +
                 '}';
     }
 }

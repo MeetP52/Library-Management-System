@@ -7,7 +7,7 @@ public class BookCatalogItem {
     private Book book;
     private int quantity;
 
-    public BookCatalogItem() {};
+    public BookCatalogItem() {}
 
     @JsonCreator
     public BookCatalogItem(@JsonProperty("book") Book book,
@@ -17,10 +17,8 @@ public class BookCatalogItem {
     }
 
     public BookCatalogItem(Book book) {
-        if(!this.equals(book)) {
-            this.book = book.copy("deep");
-            this.quantity = 20;
-        }
+        this.book = book.copy("deep");
+        this.quantity = 20;
     }
 
     public BookCatalogItem(BookCatalogItem item) {

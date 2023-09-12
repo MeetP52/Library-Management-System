@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class AdminCatalog {
-    private Map<Integer,Admin> admins;
+    private final Map<Integer,Admin> admins;
     private static AdminCatalog catalog;
 
     public AdminCatalog() {
@@ -71,19 +71,19 @@ public class AdminCatalog {
         return admin.hashCode();
     }
 
-    public Admin findUser(int adminId) {
-        return admins.get(adminId);
+    public Admin findAdmin(int adminId) {
+        return (admins.get(adminId) == null) ? null : admins.get(adminId).copy("deep");
     }
 
-    public Admin findUser(Admin admin) {
-        return admins.get(findAdminId(admin));
+    public Admin findAdmin(Admin admin) {
+        return (!admins.containsKey(findAdminId(admin))) ? null : findAdmin(findAdminId(admin));
     }
 
     public boolean addAdminUser(Admin admin) {
         if(admins.containsKey(admin.hashCode())) {
             return false;
         }
-        admins.put(admins.hashCode(),admin);
+        admins.put(admin.hashCode(),admin);
         return true;
     }
 

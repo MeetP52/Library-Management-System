@@ -15,7 +15,7 @@ public class Admin {
     private User admin;
     private AddInfo info;
 
-    public Admin() {};
+    public Admin() {}
 
     @JsonCreator
     public Admin(@JsonProperty("user") User user,
@@ -68,6 +68,10 @@ public class Admin {
 
     @Override
     public int hashCode() {
+        if(getUser().hashCode() == 0) {
+            System.out.println("Hashcode result is 0");
+            return -1;
+        }
         return getUser().hashCode();
     }
 

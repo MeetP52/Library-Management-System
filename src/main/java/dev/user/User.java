@@ -14,7 +14,7 @@ public class User {
     private String state;
     private String city;
 
-    public User() {};
+    public User() {}
 
     @JsonCreator
     public User(@JsonProperty("firstName") String firstName,
@@ -26,8 +26,12 @@ public class User {
                 @JsonProperty("city") String city) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.setEmailAddress(emailAddress);
-        this.setPhoneNumber(phoneNumber);
+        if(!this.setEmailAddress(emailAddress)) {
+            this.emailAddress = "Invalid Email Address.";
+        }
+        if(!this.setPhoneNumber(phoneNumber)) {
+            this.phoneNumber = "Invalid Phone Number";
+        }
         this.country = country;
         this.state = state;
         this.city = city;
@@ -36,8 +40,12 @@ public class User {
     public User(User user) {
         this.firstName = user.firstName;
         this.lastName = user.lastName;
-        this.setEmailAddress(user.emailAddress);
-        this.setPhoneNumber(user.phoneNumber);
+        if(!this.setEmailAddress(user.emailAddress)) {
+            this.emailAddress = "Invalid Email Address.";
+        }
+        if(!this.setPhoneNumber(user.phoneNumber)) {
+            this.phoneNumber = "Invalid Phone Number";
+        }
         this.country = user.country;
         this.state = user.state;
         this.city = user.city;
@@ -63,13 +71,16 @@ public class User {
         return emailAddress;
     }
 
-    public void setEmailAddress(String emailAddress) {
+    public boolean setEmailAddress(String emailAddress) {
         if(validateEmailAddress(emailAddress)) {
             this.emailAddress = emailAddress;
+            return true;
         }
+        return false;
     }
 
     public boolean validateEmailAddress(String emailAddress) {
+        if(emailAddress == null || emailAddress.isBlank()) return false;
         String emailAddressExpression = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}";
         if (!emailAddress.matches(emailAddressExpression)) {
             System.out.println("Invalid email address, example: example2023@r44.co");
@@ -82,13 +93,16 @@ public class User {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public boolean setPhoneNumber(String phoneNumber) {
         if(validatePhoneNumber(phoneNumber)) {
             this.phoneNumber = phoneNumber;
+            return true;
         }
+        return false;
     }
 
-    private boolean validatePhoneNumber(String phoneNumber) {
+    public boolean validatePhoneNumber(String phoneNumber) {
+        if(phoneNumber == null || phoneNumber.isBlank()) return false;
         String phoneNumberExpression = "^(?:\\+\\d{1,2}\\s?)?(?:\\(\\d{3}\\)|\\d{3})[-\\s]?\\d{3}[-\\s]?\\d{4}$";
         if(!phoneNumber.matches(phoneNumberExpression)) {
             System.out.println("Invalid phone number, example:\n" +
@@ -126,11 +140,10 @@ public class User {
     }
 
     public User copy(String type) {
-        User user;
         if(type.equals("deep")) {
-            return user = new User(this);
+            return new User(this);
         }
-        return user = this;
+        return this;
     }
 
     @Override

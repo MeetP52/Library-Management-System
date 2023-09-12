@@ -9,7 +9,7 @@ public class UserCatalogItem {
     private User user;
     private AddInfo addInfo;
 
-    public UserCatalogItem() {};
+    public UserCatalogItem() {}
 
     @JsonCreator
     public UserCatalogItem(@JsonProperty("user") User user,
@@ -53,11 +53,10 @@ public class UserCatalogItem {
     }
 
     public UserCatalogItem copy(String type)  {
-        UserCatalogItem userCatalogItem;
         if(type.equals("deep")) {
-            return userCatalogItem = new UserCatalogItem(this);
+            return new UserCatalogItem(this);
         }
-        return userCatalogItem = this;
+        return this;
     }
 
     @Override

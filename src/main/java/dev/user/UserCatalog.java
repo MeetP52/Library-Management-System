@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class UserCatalog {
-    private Map<Integer, UserCatalogItem> users;
+    private final Map<Integer, UserCatalogItem> users;
     private static UserCatalog catalog;
 
     private UserCatalog() {
@@ -72,11 +72,11 @@ public class UserCatalog {
     }
 
     public UserCatalogItem findUser(int id) {
-        return users.get(id);
+        return (users.get(id) == null) ? null : users.get(id).copy("deep");
     }
 
     public UserCatalogItem findUser(User user) {
-        return findUser(findUserId(user));
+        return (!users.containsKey(findUserId(user))) ? null : findUser(findUserId(user));
     }
 
     public boolean addUser(UserCatalogItem userCatalogItem) {

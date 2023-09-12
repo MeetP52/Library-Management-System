@@ -2,17 +2,17 @@
   "326742856" : {
     "user" : {
       "firstName" : "John",
-      "lastName" : "Smith",
+      "lastName" : "Doe",
       "emailAddress" : "john@example.com",
-      "phoneNumber" : "1112223333",
-      "country" : "United States",
-      "state" : "Texas",
-      "city" : "Austin"
+      "phoneNumber" : "123-456-7890",
+      "country" : "USA",
+      "state" : "CA",
+      "city" : "Los Angeles"
     },
     "addInfo" : {
-      "password" : "MyP@ss123",
-      "securityQuestion" : "WHAT_WAS_THE_NAME_OF_YOUR_FIRST_SCHOOL",
-      "securityAnswer" : "Maple Elementary",
+      "password" : "P@ssw0rd",
+      "securityQuestion" : "WHAT_IS_YOUR_MOTHERS_MAIDEN_NAME",
+      "securityAnswer" : "Smith",
       "userBooks" : [ ],
       "cart" : {
         "books" : [ ]
@@ -34,6 +34,27 @@
       "password" : "Secur3P@ss",
       "securityQuestion" : "WHAT_IS_YOUR_FAVORITE_BOOK",
       "securityAnswer" : "The Great Gatsby",
+      "userBooks" : [ ],
+      "cart" : {
+        "books" : [ ]
+      },
+      "strikes" : 0
+    }
+  },
+  "303129323" : {
+    "user" : {
+      "firstName" : "Jane",
+      "lastName" : "Smith",
+      "emailAddress" : "jane@example.com",
+      "phoneNumber" : "555-555-5555",
+      "country" : "USA",
+      "state" : "NY",
+      "city" : "New York"
+    },
+    "addInfo" : {
+      "password" : "P@ssw0rd",
+      "securityQuestion" : "WHAT_IS_YOUR_FAVORITE_MOVIE",
+      "securityAnswer" : "Matrix",
       "userBooks" : [ ],
       "cart" : {
         "books" : [ ]
@@ -97,147 +118,7 @@
       "password" : "P@ssw0rd123",
       "securityQuestion" : "IN_WHAT_CITY_WERE_YOU_BORN",
       "securityAnswer" : "New York City",
-      "userBooks" : [ {
-        "book" : {
-          "title" : "Harry Potter and the Chamber of Secrets",
-          "series" : "Harry Potter (Book 2)",
-          "description" : "In his second year at Hogwarts, Harry faces a new mystery involving the Chamber of Secrets.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Young Adult", "Fantasy" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Deathly Hallows",
-          "series" : "Harry Potter (Book 7)",
-          "description" : "In the final installment, Harry, Ron, and Hermione embark on a quest to destroy Voldemort's Horcruxes and end his reign.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Young Adult", "Fantasy" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Half-Blood Prince",
-          "series" : "Harry Potter (Book 6)",
-          "description" : "As Voldemort's power increases, Harry uncovers the history of Horcruxes and prepares for the ultimate battle.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Young Adult", "Fantasy" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Goblet of Fire",
-          "series" : "Harry Potter (Book 4)",
-          "description" : "Harry's fourth year at Hogwarts takes an unexpected turn when he is entered into the dangerous Triwizard Tournament.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Young Adult", "Fantasy" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Sorcerer's Stone",
-          "series" : "Harry Potter (Book 1)",
-          "description" : "Young Harry Potter discovers he's a wizard and embarks on a journey at Hogwarts School of Witchcraft and Wizardry.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Young Adult", "Fantasy" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Order of the Phoenix",
-          "series" : "Harry Potter (Book 5)",
-          "description" : "In his fifth year, Harry returns to a wizarding world in turmoil and forms 'Dumbledore's Army' to resist the Ministry's control.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Young Adult", "Fantasy" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Prisoner of Azkaban",
-          "series" : "Harry Potter (Book 3)",
-          "description" : "In his third year, Harry learns about Sirius Black and faces Dementors and time-traveling adventures.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Young Adult", "Fantasy" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Chamber of Secrets",
-          "series" : "Harry Potter (Book 2)",
-          "description" : "In his second year at Hogwarts, Harry faces a new mystery involving the Chamber of Secrets.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Fantasy", "Young Adult" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Deathly Hallows",
-          "series" : "Harry Potter (Book 7)",
-          "description" : "In the final installment, Harry, Ron, and Hermione embark on a quest to destroy Voldemort's Horcruxes and end his reign.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Fantasy", "Young Adult" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Half-Blood Prince",
-          "series" : "Harry Potter (Book 6)",
-          "description" : "As Voldemort's power increases, Harry uncovers the history of Horcruxes and prepares for the ultimate battle.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Fantasy", "Young Adult" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Goblet of Fire",
-          "series" : "Harry Potter (Book 4)",
-          "description" : "Harry's fourth year at Hogwarts takes an unexpected turn when he is entered into the dangerous Triwizard Tournament.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Fantasy", "Young Adult" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Sorcerer's Stone",
-          "series" : "Harry Potter (Book 1)",
-          "description" : "Young Harry Potter discovers he's a wizard and embarks on a journey at Hogwarts School of Witchcraft and Wizardry.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Fantasy", "Young Adult" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Order of the Phoenix",
-          "series" : "Harry Potter (Book 5)",
-          "description" : "In his fifth year, Harry returns to a wizarding world in turmoil and forms 'Dumbledore's Army' to resist the Ministry's control.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Fantasy", "Young Adult" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      }, {
-        "book" : {
-          "title" : "Harry Potter and the Prisoner of Azkaban",
-          "series" : "Harry Potter (Book 3)",
-          "description" : "In his third year, Harry learns about Sirius Black and faces Dementors and time-traveling adventures.",
-          "authors" : [ "J.K. Rowling" ],
-          "genres" : [ "Fantasy", "Young Adult" ]
-        },
-        "pickUpDate" : "2023-09-06",
-        "dueDate" : "2023-10-06"
-      } ],
+      "userBooks" : [ ],
       "cart" : {
         "books" : [ ]
       },

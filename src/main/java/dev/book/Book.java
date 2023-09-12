@@ -35,8 +35,8 @@ public class Book {
         this.title = book.title;
         this.series = book.series;
         this.description = book.description;
-        this.authors = Set.copyOf(book.authors);
-        this.genres = Set.copyOf(book.genres);
+        this.authors = new HashSet<>(book.authors);
+        this.genres = new HashSet<>(book.genres);
     }
 
     public String getTitle() {
