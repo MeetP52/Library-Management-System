@@ -3,7 +3,12 @@
 This is a short introduction to the purpose of this project.
 
 The goal of the project is to learn and make use of the java programming language. 
-This is a simple tool that makes use of data that is locally stored in a txt file, specifically in JSON format. 
+This tool simulates a simple libaray book management system, which allows users to search and add books to their carts.
+Lets them checkout books and chage their due dates.
+The tool makes use of a user profile system to keep track of users and their books.
+
+
+This tool makes use of data that is locally stored in a txt file, specifically in JSON format. 
 This data acts as a database off of which all queries are made of. 
 This is accomplised by making use of the Jackson library to go back and forth between json notation and a hashmap data structure.
 
