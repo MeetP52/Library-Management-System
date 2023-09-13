@@ -12,7 +12,7 @@ public class ChangeFirstNameOption implements Option {
 
     static ChangeFirstNameOption option;
 
-    private ChangeFirstNameOption() {};
+    private ChangeFirstNameOption() {}
 
     public static ChangeFirstNameOption getChangeFirstNameOption() {
         return (option == null) ? new ChangeFirstNameOption() : option;
@@ -22,8 +22,14 @@ public class ChangeFirstNameOption implements Option {
         PageManager manager = PageManager.getPageManager();
         UserCatalogItem user = manager.getUser();
         System.out.println("What would you like to change your first name to?");
+        System.out.print("> ");
         String newName = new Scanner(System.in).next();
         user.getUser().setFirstName(newName);
         System.out.println("New First Name: " + user.getUser().getFirstName());
+    }
+
+    @Override
+    public String toString() {
+        return prompt;
     }
 }

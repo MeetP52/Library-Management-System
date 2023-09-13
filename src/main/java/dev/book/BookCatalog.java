@@ -107,7 +107,7 @@ public class BookCatalog {
             ids = genreTrie.find(value);
         }
         if(ids.isEmpty()) {
-            return null;
+            return new LinkedList<>();
         }
         List<Book> results = new LinkedList<>();
         ids.forEach(i -> {

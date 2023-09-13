@@ -11,7 +11,7 @@ public class ChangeEmailAddressOption implements Option {
 
     static ChangeEmailAddressOption option;
 
-    private ChangeEmailAddressOption() {};
+    private ChangeEmailAddressOption() {}
 
     public static ChangeEmailAddressOption getChangeEmailAddressOption() {
         return (option == null) ? new ChangeEmailAddressOption() : option;
@@ -21,6 +21,7 @@ public class ChangeEmailAddressOption implements Option {
         PageManager manager = PageManager.getPageManager();
         UserCatalogItem user = manager.getUser();
         System.out.println("What would you like to change your email address to?");
+        System.out.print("> ");
         String newEmailAddress = new Scanner(System.in).next();
         String oldEmailAddress = user.getUser().getEmailAddress();
         user.getUser().setEmailAddress(newEmailAddress);
@@ -30,5 +31,10 @@ public class ChangeEmailAddressOption implements Option {
         } else {
             System.out.println("New Email Address: " + user.getUser().getEmailAddress());
         }
+    }
+
+    @Override
+    public String toString() {
+        return prompt;
     }
 }

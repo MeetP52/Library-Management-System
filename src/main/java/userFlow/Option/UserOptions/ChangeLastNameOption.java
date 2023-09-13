@@ -11,7 +11,7 @@ public class ChangeLastNameOption implements Option {
 
     static ChangeLastNameOption option;
 
-    private ChangeLastNameOption() {};
+    private ChangeLastNameOption() {}
 
     public static ChangeLastNameOption getChangeLastNameOption() {
         return (option == null) ? new ChangeLastNameOption() : option;
@@ -21,8 +21,14 @@ public class ChangeLastNameOption implements Option {
         PageManager manager = PageManager.getPageManager();
         UserCatalogItem user = manager.getUser();
         System.out.println("What would you like to change your last name to?");
+        System.out.print("> ");
         String newName = new Scanner(System.in).next();
         user.getUser().setLastName(newName);
         System.out.println("New Last Name: " + user.getUser().getLastName());
+    }
+
+    @Override
+    public String toString() {
+        return prompt;
     }
 }

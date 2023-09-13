@@ -7,7 +7,7 @@ public class CartPageWindow implements Window {
 
     static private CartPageWindow window;
 
-    private CartPageWindow() {};
+    private CartPageWindow() {}
 
     public static CartPageWindow getCartPageWindow() {
         return (window == null) ? new CartPageWindow() : window;

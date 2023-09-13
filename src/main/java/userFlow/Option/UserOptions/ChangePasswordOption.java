@@ -12,7 +12,7 @@ public class ChangePasswordOption implements Option {
 
     static ChangePasswordOption option;
 
-    private ChangePasswordOption() {};
+    private ChangePasswordOption() {}
 
     public static ChangePasswordOption getChangePasswordOption() {
         return (option == null) ? new ChangePasswordOption() : option;
@@ -22,6 +22,7 @@ public class ChangePasswordOption implements Option {
         PageManager manager = PageManager.getPageManager();
         UserCatalogItem user = manager.getUser();
         System.out.println("What would you like to change your password to?");
+        System.out.print("> ");
         String newPassword = new Scanner(System.in).next();
         user.getAddInfo().setPassword(newPassword);
         if(!user.getUser().getEmailAddress().equals(newPassword)) {
@@ -29,5 +30,10 @@ public class ChangePasswordOption implements Option {
         } else {
             System.out.println("Password Changed");
         }
+    }
+
+    @Override
+    public String toString() {
+        return prompt;
     }
 }

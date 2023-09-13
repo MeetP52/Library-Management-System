@@ -1,5 +1,6 @@
 package userFlow;
 
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import dev.user.*;
 import userFlow.CartPage.CartPageOptions;
 import userFlow.CartPage.CartPageWindow;
@@ -11,6 +12,7 @@ import userFlow.UserProfilePage.UserPageOptions;
 import userFlow.UserProfilePage.UserPageWindow;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -27,10 +29,11 @@ public class PageManager {
     }
 
     Map<Integer, Page> pages = new HashMap<>();
-    Scanner scanner = new Scanner(System.in);
+    Scanner next = new Scanner(System.in);
+    Scanner nextLine = new Scanner(System.in);
     static int currentPage = 1;
 
-    static private UserCatalogItem user;
+    static private UserCatalogItem user = null;
 
     static PageManager manager;
 
@@ -48,17 +51,31 @@ public class PageManager {
     public UserCatalogItem displayLogInPage() {
         String username, password;
         System.out.println("Welcome to the Library Management Tool");
-        System.out.println("Are you a new user?");
-        username = scanner.next();
-        if(username.equalsIgnoreCase("y") || username.equalsIgnoreCase("yes")) {
-            CreateNewUserScript();
+        if(user == null) {
+            System.out.println("Are you a new user?");
+            System.out.print("> ");
+            username = next.next();
+            if (username.equalsIgnoreCase("y") || username.equalsIgnoreCase("yes")) {
+                CreateNewUserScript();
+            } else {
+                System.out.print("Enter a username: ");
+                System.out.print("> ");
+                username = next.next();
+                // username = "meet@patel.com";
+                System.out.print("Enter a password: ");
+                System.out.print("> ");
+                password = next.next();
+                return user = authenticate(username,password);
+            }
         }
         System.out.print("Enter a username: ");
-        // username = scanner.next();
-        username = "meet@patel.com";
+        System.out.print("> ");
+        username = next.next();
+        // username = "meet@patel.com";
         System.out.print("Enter a password: ");
-        // password = scanner.next();
-        password = "P@ssw0rd123";
+        System.out.print("> ");
+        password = next.next();
+        // password = "P@ssw0rd123";
         return user = authenticate(username,password);
     }
 
@@ -67,39 +84,48 @@ public class PageManager {
         AddInfo info = new AddInfo();
         String input;
         System.out.println("Please Enter your first name.");
-        input = scanner.next();
+        System.out.print("> ");
+        input = next.next();
         _user.setFirstName(input);
         System.out.println("Please Enter your last name.");
-        input = scanner.next();
+        System.out.print("> ");
+        input = next.next();
         _user.setLastName(input);
         System.out.println("Please Enter your email address.");
-        input = scanner.next();
+        System.out.print("> ");
+        input = next.next();
         while(!_user.setEmailAddress(input)) {
             System.out.println("Try again");
-            input = scanner.next();
+            input = next.next();
         }
         System.out.println("Please Enter your phone number.");
-        input = scanner.next();
+        System.out.print("> ");
+        input = next.next();
         while(!_user.setPhoneNumber(input)) {
             System.out.println("Try again");
-            input = scanner.next();
+            input = next.next();
         }
         System.out.println("Please Enter your current country.");
-        input = scanner.next();
+        System.out.print("> ");
+        input = nextLine.nextLine();
         _user.setCountry(input);
         System.out.println("Please Enter your current state.");
-        input = scanner.next();
+        System.out.print("> ");
+        input = nextLine.nextLine();
         _user.setState(input);
         System.out.println("Please Enter your current city.");
-        input = scanner.next();
+        System.out.print("> ");
+        input = nextLine.nextLine();
         _user.setCity(input);
 
         System.out.println("\n\nGreat! Now lets add some security.");
-        System.out.println("Please a passowrd.");
-        input = scanner.next();
+        System.out.println("Please a password.");
+        System.out.print("> ");
+        input = next.next();
         while(!info.setPassword(input)) {
             System.out.println("Try again");
-            input = scanner.next();
+            System.out.print("> ");
+            input = next.next();
         }
         System.out.println("Now lets choose a security question");
         System.out.println("Here are your options: ");
@@ -110,27 +136,42 @@ public class PageManager {
             System.out.println(index + ": " + q);
 
         }
-        System.out.print("> ");
-        index = new Scanner(System.in).nextInt();
+        boolean hasInt = false;
+        while(!hasInt) {
+            try {
+                System.out.print("> ");
+                index = next.nextInt();
+                hasInt = true;
+            } catch (InputMismatchException e) {
+                hasInt = false;
+                System.out.println("There was an issue trying to understand your input try again.");
+                next.nextLine();
+            }
+        }
         if(index <= SecurityQuestion.values().length) {
-            user.getAddInfo().setSecurityQuestion(questions[index-1]);
+            info.setSecurityQuestion(questions[index-1]);
             System.out.println("Security Question Added.");
         }
         System.out.println("Now lets add a security answer");
-        input = scanner.next();
+        System.out.print("> ");
+        input = nextLine.nextLine();
         info.setSecurityAnswer(input);
-        System.out.println("Each user within the system must have a unique email address, which is how we identify users.\n" +
-                "If this email already exists unfortunately you will have to create a new unique email address.");
+        System.out.println("\n\n\nEach user within the system must have a unique email address, which is how we identify users.\n" +
+                "If your email already exists within the system unfortunately you will have to create a new unique email address.");
         UserCatalog catalog = UserCatalog.getUserCatalog();
-        while (catalog.findUser(input.hashCode()) == null) {
+        while (catalog.findUser(_user.hashCode()) != null) {
             System.out.println("Sorry it looks like someone already makes use of this email address, you must come with you another unique email address");
-            input = scanner.next();
+            System.out.print("Try again >");
+            input = next.next();
             while(!_user.setEmailAddress(input)) {
                 System.out.println("Try again");
-                input = scanner.next();
+                System.out.print("> ");
+                input = next.next();
             }
         }
         System.out.println("Success, your profile is being created right now.");
+        user = new UserCatalogItem(_user,info);
+        catalog.addUser(user);
         System.out.println("Lets sign in one more time to make sure that it works.");
     }
 
@@ -143,6 +184,7 @@ public class PageManager {
             if(user.getAddInfo().getPassword().equals(password)) {
                 return user;
             } else {
+                System.out.println("Invalid Username or Password.");
                 return null;
             }
         }
@@ -156,9 +198,20 @@ public class PageManager {
     }
 
     private void takeInput() {
-        int input;
-        System.out.print("> ");
-        input = scanner.nextInt();
+        int input = 0;
+        boolean hasInt = false;
+
+        while(!hasInt) {
+            try {
+                System.out.print("> ");
+                input = next.nextInt();
+               hasInt = true;
+            } catch (InputMismatchException e) {
+                hasInt = false;
+                System.out.println("There was an issue trying to understand your input try again,.");
+                next.nextLine();
+            }
+        }
         pages.get(currentPage).options.getOptions().get(input).execute();
     }
 

@@ -11,7 +11,7 @@ public class ChnageSecurityAnswerOption implements Option {
 
     static ChnageSecurityAnswerOption option;
 
-    private ChnageSecurityAnswerOption() {};
+    private ChnageSecurityAnswerOption() {}
 
     public static ChnageSecurityAnswerOption getChnageSecurityAnswerOption() {
         return (option == null) ? new ChnageSecurityAnswerOption() : option;
@@ -21,6 +21,7 @@ public class ChnageSecurityAnswerOption implements Option {
         PageManager manager = PageManager.getPageManager();
         UserCatalogItem user = manager.getUser();
         System.out.println("What would you like to change your security answer to?");
+        System.out.print("> ");
         String newSecurityAnswer = new Scanner(System.in).next();
         user.getAddInfo().setSecurityAnswer(newSecurityAnswer);
         if(!user.getAddInfo().getSecurityAnswer().equals(newSecurityAnswer)) {
@@ -28,5 +29,10 @@ public class ChnageSecurityAnswerOption implements Option {
         } else {
             System.out.println("Security Answer Changed");
         }
+    }
+
+    @Override
+    public String toString() {
+        return prompt;
     }
 }

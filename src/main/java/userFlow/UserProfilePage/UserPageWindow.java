@@ -7,7 +7,7 @@ public class UserPageWindow implements Window {
 
     static UserPageWindow window;
 
-    private UserPageWindow() {};
+    private UserPageWindow() {}
 
     public static UserPageWindow getUserPageWindow() {
         return (window == null) ? new UserPageWindow() : window;

@@ -2,9 +2,7 @@ package userFlow.UserProfilePage;
 
 import userFlow.CartPage.CartPageOptions;
 import userFlow.Option.*;
-import userFlow.Option.UserOptions.ChangeEmailAddressOption;
-import userFlow.Option.UserOptions.ChangeFirstNameOption;
-import userFlow.Option.UserOptions.ChangeLastNameOption;
+import userFlow.Option.UserOptions.*;
 import userFlow.Options;
 
 import java.util.HashMap;
@@ -24,6 +22,9 @@ public class UserPageOptions implements Options {
         userPageOptions.put(4, ChangeFirstNameOption.getChangeFirstNameOption());
         userPageOptions.put(5, ChangeLastNameOption.getChangeLastNameOption());
         userPageOptions.put(6, ChangeEmailAddressOption.getChangeEmailAddressOption());
+        userPageOptions.put(7, ChnageSecurityAnswerOption.getChnageSecurityAnswerOption());
+        userPageOptions.put(8, ChnageSecurityAnswerOption.getChnageSecurityAnswerOption());
+        userPageOptions.put(9, ChangePasswordOption.getChangePasswordOption());
     }
 
     public static UserPageOptions getUserPageOptions() {

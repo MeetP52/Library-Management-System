@@ -12,7 +12,7 @@ public class ChangeSecurityQuestionOption implements Option {
 
     static ChangeSecurityQuestionOption option;
 
-    private ChangeSecurityQuestionOption() {};
+    private ChangeSecurityQuestionOption() {}
 
     public static ChangeSecurityQuestionOption getChangeSecurityQuestionOption() {
         return (option == null) ? new ChangeSecurityQuestionOption() : option;
@@ -42,5 +42,10 @@ public class ChangeSecurityQuestionOption implements Option {
             ChnageSecurityAnswerOption option = ChnageSecurityAnswerOption.getChnageSecurityAnswerOption();
             option.execute();
         }
+    }
+
+    @Override
+    public String toString() {
+        return prompt;
     }
 }
