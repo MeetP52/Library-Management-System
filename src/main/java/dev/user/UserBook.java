@@ -85,6 +85,14 @@ public class UserBook {
     }
 
     @Override
+    public int hashCode() {
+        int result = getBook().hashCode();
+        result = 31 * result + getPickUpDate().hashCode();
+        result = 31 * result + getDueDate().hashCode();
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "UserBook { " +
                 "\n\t book=" + book +

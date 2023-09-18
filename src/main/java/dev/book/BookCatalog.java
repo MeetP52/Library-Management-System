@@ -19,7 +19,7 @@ public class BookCatalog {
     private Trie authorTrie;
     private Trie genreTrie;
 
-    public BookCatalog() {
+    private BookCatalog() {
         this.books = new HashMap<>();
         generateBookData();
         setupTries();
@@ -38,17 +38,13 @@ public class BookCatalog {
         books.forEach((bookId,book) -> {
             titleTrie.insert(book.getBook().getTitle(),bookId);
             seriesTrie.insert(book.getBook().getSeries(),bookId);
-            book.getBook().getAuthors().forEach(author -> {
-                authorTrie.insert(author,bookId);
-            });
-            book.getBook().getGenres().forEach(genre -> {
-                genreTrie.insert(genre,bookId);
-            });
+            book.getBook().getAuthors().forEach(author -> authorTrie.insert(author,bookId));
+            book.getBook().getGenres().forEach(genre -> genreTrie.insert(genre,bookId));
         });
     }
 
     public void generateBookData() {
-        String absFilePath = "E:\\Code\\Intellij\\User\\src\\main\\java\\docs\\book\\data2.txt";
+        String absFilePath = "E:\\Code\\Intellij\\User\\src\\main\\java\\docs\\book\\BookData.txt";
 
         try(FileReader reader = new FileReader(absFilePath)) {
             BufferedReader bufferedReader = new BufferedReader(reader);
@@ -58,7 +54,6 @@ public class BookCatalog {
             Iterator<Map.Entry<String, JsonNode>> fields = rootNode.fields();
             while (fields.hasNext()) {
                 Map.Entry<String,JsonNode> entry = fields.next();
-                // int bookId = Integer.parseInt(entry.getKey());
                 BookCatalogItem bookCatalogItem = mapper.treeToValue(entry.getValue(),BookCatalogItem.class);
                 if(books.put(bookCatalogItem.hashCode(),bookCatalogItem) != null) {
                     System.out.println("Inserted book: " + bookCatalogItem.getBook().getTitle());
@@ -119,7 +114,7 @@ public class BookCatalog {
     }
 
     public BookCatalogItem findBookItem(Book book) {
-       return (findBook(findBookId(book)) == null) ? null : books.get(findBookId(book)).copy("deep");
+       return (findBook(findBookId(book)) == null) ? null : books.get(findBookId(book));
     }
 
     public boolean addBook(Book book) {
@@ -127,8 +122,7 @@ public class BookCatalog {
             return false;
         }
         books.put(book.hashCode(),new BookCatalogItem(book));
-        addTrieNode(book,book.hashCode());
-        return true;
+        return addTrieNode(book,book.hashCode());
     }
 
     public boolean removeBook(Book book) {
@@ -136,31 +130,22 @@ public class BookCatalog {
             return false;
         }
         books.remove(book.hashCode(),books.get(book.hashCode()));
-        removeTrieNode(book,book.hashCode());
-        return true;
+        return removeTrieNode(book,book.hashCode());
     }
 
     public boolean addTrieNode(Book book, int id) {
         titleTrie.insert(book.getTitle(),id);
         seriesTrie.insert(book.getSeries(),id);
-        book.getAuthors().forEach(author -> {
-            authorTrie.insert(author,id);
-        });
-        book.getGenres().forEach(genre -> {
-            genreTrie.insert(genre,id);
-        });
+        book.getAuthors().forEach(author -> authorTrie.insert(author,id));
+        book.getGenres().forEach(genre -> genreTrie.insert(genre,id));
         return true;
     }
 
     public boolean removeTrieNode(Book book, int id) {
         titleTrie.remove(book.getTitle(),id);
         seriesTrie.remove(book.getSeries(),id);
-        book.getAuthors().forEach(author -> {
-            authorTrie.remove(author,id);
-        });
-        book.getGenres().forEach(genre -> {
-            genreTrie.remove(genre,id);
-        });
+        book.getAuthors().forEach(author -> authorTrie.remove(author,id));
+        book.getGenres().forEach(genre -> genreTrie.remove(genre,id));
         return true;
     }
 
@@ -169,6 +154,12 @@ public class BookCatalog {
             return false;
         }
        return books.get(findBookId(book)).removeQuantity(1);
+    }
+
+    public List<BookCatalogItem> getBookList() {
+        List<BookCatalogItem> bookList = new LinkedList<>();
+        books.forEach((id,book) -> bookList.add(book));
+        return bookList;
     }
 
 

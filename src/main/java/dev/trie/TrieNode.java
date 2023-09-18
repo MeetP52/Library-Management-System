@@ -76,20 +76,29 @@ public class TrieNode {
         return getCh() == trieNode.getCh();
     }
 
-    private TrieNode copy(String type) {
-        TrieNode node = null;
+    public TrieNode copy(String type) {
         if(type.equals("deep")) {
-            return node = new TrieNode(this);
+            return new TrieNode(this);
         }
-        return node = this;
+        return this;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getCh();
+        result = 31 * result + (isWordEndChar() ? 1 : 0);
+        result = 31 * result + getChildNodes().hashCode();
+        result = 31 * result + getBooks().hashCode();
+        return result;
     }
 
     @Override
     public String toString() {
+        String tab = "\n\t";
         return "TrieNode {" + "\n\t" +
-                "ch = " + ch + ",\n\t" +
-                "wordEndChar = " + wordEndChar + ",\n\t" +
-                "childNodes = " + childNodes + ",\n\t" +
+                "ch = " + ch + "," + tab +
+                "wordEndChar = " + wordEndChar + "," + tab +
+                "childNodes = " + childNodes + "," + tab +
                 '}';
     }
 }

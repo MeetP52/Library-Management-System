@@ -105,11 +105,12 @@ public class User {
         if(phoneNumber == null || phoneNumber.isBlank()) return false;
         String phoneNumberExpression = "^(?:\\+\\d{1,2}\\s?)?(?:\\(\\d{3}\\)|\\d{3})[-\\s]?\\d{3}[-\\s]?\\d{4}$";
         if(!phoneNumber.matches(phoneNumberExpression)) {
-            System.out.println("Invalid phone number, example:\n" +
-                    "+1 123-456-7890\n" +
-                    "(123) 456-7890\n" +
-                    "123 456 7890\n" +
-                    "123-456-7890");
+            System.out.println("""
+                    Invalid phone number, example:
+                    +1 123-456-7890
+                    (123) 456-7890
+                    123 456 7890
+                    123-456-7890""");
             return false;
         }
         return true;
@@ -158,15 +159,6 @@ public class User {
     public int hashCode() {
         return getEmailAddress().hashCode();
     }
-
-    //    public void viewBooks() {
-//        UserCatalog userCatalog = UserCatalog.getUserCatalog();
-//        if(userCatalog.findUser(this) != null) {
-//            userCatalog.findUser(this).getAddInfo().getUserBooks().toString();
-//        } else {
-//            System.out.println("Error finding user.");
-//        }
-//    }
 
 
     @Override

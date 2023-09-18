@@ -71,7 +71,7 @@ public class Cart {
         BookCatalog catalog = BookCatalog.getBookCatalog();
         BookCatalogItem item;
         for(Book book : bookList) {
-            item = catalog.findBookItem(book);
+            item = catalog.findBookItem(book).copy("deep");
             if(item == null) {
                 return false;
             } else {

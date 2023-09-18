@@ -7,6 +7,7 @@ import dev.cart.Cart;
 import java.util.*;
 
 public class AddInfo {
+    private static final String INVALID_PASSWORD = "Invalid Password";
     private String password;
     private SecurityQuestion securityQuestion;
     private String securityAnswer;
@@ -23,7 +24,7 @@ public class AddInfo {
 
     public AddInfo(String password, SecurityQuestion securityQuestion, String securityAnswer) {
         if(!this.setPassword(password)) {
-            this.password = "Invalid Password.";
+            this.password = INVALID_PASSWORD;
         }
         this.securityQuestion = securityQuestion;
         this.securityAnswer = securityAnswer;
@@ -40,7 +41,7 @@ public class AddInfo {
                    @JsonProperty("cart") Cart cart,
                    @JsonProperty("strikes") int strikes) {
         if (!this.setPassword(password)) {
-            this.password = "Invalid Password.";
+            this.password = INVALID_PASSWORD;
         }
         this.securityQuestion = securityQuestion;
         this.securityAnswer = securityAnswer;
@@ -51,7 +52,7 @@ public class AddInfo {
 
     protected AddInfo(AddInfo addInfo) {
         if (!this.setPassword(addInfo.password)) {
-            this.password = "Invalid Password.";
+            this.password = INVALID_PASSWORD;
         }
         this.securityQuestion = addInfo.securityQuestion;
         this.securityAnswer = addInfo.securityAnswer;
@@ -125,17 +126,22 @@ public class AddInfo {
         this.cart = cart;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        AddInfo addInfo = (AddInfo) o;
-//
-//        if (!getPassword().equals(addInfo.getPassword())) return false;
-//        if (getSecurityQuestion() != addInfo.getSecurityQuestion()) return false;
-//        return getSecurityAnswer().equals(addInfo.getSecurityAnswer());
-//    }
+    public boolean addStrikes(int amount) {
+        if(this.strikes + amount > 3) {
+            return false;
+        }
+        this.strikes+=amount;
+        return true;
+    }
+
+    public boolean removeStrikes(int amount) {
+        if(this.strikes - amount < 0) {
+            return false;
+        }
+        this.strikes-= amount;
+        return true;
+    }
+
 
     public AddInfo copy(String type) {
         if(type.equals("deep")) {

@@ -15,7 +15,7 @@ class BookCatalogTest {
 
     @BeforeEach
     void setUp() {
-        catalog = new BookCatalog();
+        catalog = BookCatalog.getBookCatalog();
     }
 
     @Test

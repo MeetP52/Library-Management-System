@@ -1,19 +1,18 @@
 package dev.lpa;
 
 import dev.user.*;
-import userFlow.PageManager;
+import userflow.PageManager;
 
-import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         UserCatalogItem user = null;
         int loginAttempts = 0;
 
         PageManager manager = PageManager.getPageManager();
         while(loginAttempts < 3) {
             if(user == null) {
-                user = manager.displayLogInPage();
+                user = PageManager.displayLogInPage();
                 if(user == null) {
                     System.out.println("Attempt Failed, try again.");
                     loginAttempts++;
@@ -21,7 +20,7 @@ public class Main {
                     System.out.println("Signing Successful.");
                 }
             } else {
-                manager.displayCurrentPage(user);
+                manager.displayCurrentPage();
             }
         }
     }

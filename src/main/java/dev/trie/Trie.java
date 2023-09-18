@@ -1,5 +1,6 @@
 package dev.trie;
 
+
 import java.util.*;
 
 public class Trie {
@@ -11,21 +12,22 @@ public class Trie {
 
     public void insert(String value, int bookId) {
         String [] values = value.split("\\s+");
-        TrieNode node; char ch;
+        TrieNode node;
+        char ch;
         for(String word : values) {
             node = root;
             for (int i = 0; i < word.length(); i++) {
                 ch = Character.toLowerCase(word.charAt(i));
                 if (node != null && node.getChildNodes().containsKey(ch)) {
                     node = node.getChildNodes().get(ch);
-                } else {
+                } else if (node != null) {
                     node.getChildNodes().put(ch, new TrieNode(ch, i == word.length() - 1));
                     node = node.getChildNodes().get(ch);
                 }
             }
-            if(node.isWordEndChar()) {
+            if(node != null &&node.isWordEndChar()) {
                 node.addBook(bookId);
-            } else {
+            } else if (node != null) {
                 node.setWordEndChar(true);
                 node.addBook(bookId);
             }
@@ -34,7 +36,8 @@ public class Trie {
 
     public Set<Integer> find(String value) {
         String [] values = value.split("\\s+");
-        TrieNode node = root; char ch;
+        TrieNode node = root;
+        char ch;
         for(String word : values) {
             for (int i = 0; i < word.length(); i++) {
                 ch = Character.toLowerCase(word.charAt(i));
@@ -50,7 +53,8 @@ public class Trie {
 
     public boolean remove(String value, int bookID) {
         String [] values = value.split("\\s+");
-        TrieNode node; char ch;
+        TrieNode node;
+        char ch;
         for(String word : values) {
             node = root;
             for(int i = 0; i < word.length(); i++) {
@@ -62,8 +66,8 @@ public class Trie {
                     return false;
                 }
             }
-            if(node.contains(bookID)) {
-                node.removeBook(bookID);
+            if(node.contains(bookID) && (!node.removeBook(bookID))) {
+                System.out.println("Issue removing a book from search engine.");
             }
         }
         return true;

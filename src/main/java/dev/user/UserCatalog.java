@@ -9,9 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class UserCatalog {
     private final Map<Integer, UserCatalogItem> users;
@@ -38,7 +36,6 @@ public class UserCatalog {
             Iterator<Map.Entry<String, JsonNode>> fields = rootNode.fields();
             while (fields.hasNext()) {
                 Map.Entry<String, JsonNode> entry = fields.next();
-                // int userID = Integer.parseInt(entry.getKey());
                 UserCatalogItem userCatalogItem = mapper.treeToValue(entry.getValue(), UserCatalogItem.class);
                 if(users.put(userCatalogItem.hashCode(), userCatalogItem) != null) {
                     System.out.println("Already Exists: " + userCatalogItem.getUser().getEmailAddress());
@@ -54,7 +51,6 @@ public class UserCatalog {
 
     public boolean storeUserCatalogData() {
         String absFilePath = "E:\\Code\\Intellij\\User\\src\\main\\java\\docs\\user\\UserData.txt";
-
         try(FileWriter writer = new FileWriter(absFilePath)) {
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModules(new JavaTimeModule());
@@ -72,7 +68,7 @@ public class UserCatalog {
     }
 
     public UserCatalogItem findUser(int id) {
-        return (users.get(id) == null) ? null : users.get(id).copy("deep");
+        return (users.get(id) == null) ? null : users.get(id);
     }
 
     public UserCatalogItem findUser(User user) {
@@ -92,6 +88,12 @@ public class UserCatalog {
             return users.remove(userCatalogItem.hashCode(), userCatalogItem);
         }
         return false;
+    }
+
+    public List<UserCatalogItem> getUsersList() {
+        List<UserCatalogItem> userList = new LinkedList<>();
+        users.forEach( (id, user) -> userList.add(user));
+        return userList;
     }
 
     @Override

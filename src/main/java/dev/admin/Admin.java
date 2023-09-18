@@ -12,7 +12,7 @@ import dev.user.UserCatalogItem;
 import java.util.List;
 
 public class Admin {
-    private User admin;
+    private User adminUser;
     private AddInfo info;
 
     public Admin() {}
@@ -20,25 +20,25 @@ public class Admin {
     @JsonCreator
     public Admin(@JsonProperty("user") User user,
                  @JsonProperty("info") AddInfo info) {
-        this.admin = user;
+        this.adminUser = user;
         this.info = info;
     }
 
     public Admin(UserCatalogItem item) {
-        this.admin = item.getUser().copy("deep");
+        this.adminUser = item.getUser().copy("deep");
         this.info = item.getAddInfo().copy("deep");
     }
 
-    protected Admin(Admin admin) {
-        this.admin = admin.admin.copy("deep");
+    protected Admin(Admin adminUser) {
+        this.adminUser = adminUser.adminUser.copy("deep");
     }
 
     public User getUser() {
-        return admin;
+        return adminUser;
     }
 
     public void setUser(User user) {
-        this.admin = user;
+        this.adminUser = user;
     }
 
     public AddInfo getInfo() {
@@ -135,7 +135,7 @@ public class Admin {
     @Override
     public String toString() {
         return "Admin {" +
-                "\n\t admin = " + admin +
+                "\n\t admin = " + adminUser +
                 ",\n\t info=" + info + "\n\t" +
                 '}';
     }

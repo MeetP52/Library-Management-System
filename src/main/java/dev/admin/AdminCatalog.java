@@ -17,7 +17,7 @@ public class AdminCatalog {
     private final Map<Integer,Admin> admins;
     private static AdminCatalog catalog;
 
-    public AdminCatalog() {
+    private AdminCatalog() {
         admins = new HashMap<>();
         generateAdminCatalog();
     }
@@ -27,7 +27,7 @@ public class AdminCatalog {
     }
 
     private void generateAdminCatalog() {
-        String absFilePath = "E:\\Code\\Intellij\\User\\src\\main\\java\\docs\\admin\\data3.txt";
+        String absFilePath = "E:\\Code\\Intellij\\User\\src\\main\\java\\docs\\admin\\AdminData.txt";
 
         try(FileReader reader = new FileReader(absFilePath)) {
             BufferedReader bufferedReader = new BufferedReader(reader);
@@ -38,7 +38,6 @@ public class AdminCatalog {
             Iterator<Map.Entry<String, JsonNode>> fields = rootNode.fields();
             while (fields.hasNext()) {
                 Map.Entry<String, JsonNode> entry = fields.next();
-                // int userID = Integer.parseInt(entry.getKey());
                 Admin admin = mapper.treeToValue(entry.getValue(), Admin.class);
                 if(admins.put(admin.hashCode(), admin) != null) {
                     System.out.println("Already Exists: " + admin.getUser().getEmailAddress());
