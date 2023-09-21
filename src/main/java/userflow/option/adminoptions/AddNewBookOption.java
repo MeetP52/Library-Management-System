@@ -17,7 +17,7 @@ public class AddNewBookOption implements Option {
     private AddNewBookOption() {}
 
     public static AddNewBookOption getAddNewBookOption() {
-        return (option == null) ? new AddNewBookOption(): option;
+        return (option == null) ? (option = new AddNewBookOption()) : option;
     }
     @Override
     public void execute() {

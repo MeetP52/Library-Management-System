@@ -1,10 +1,10 @@
-package userflow.option;
+package userflow.option.otheroptions;
 
 import dev.book.Book;
 import dev.book.BookCatalog;
-import dev.user.UserCatalog;
 import dev.user.UserCatalogItem;
 import userflow.PageManager;
+import userflow.option.Option;
 
 import java.util.*;
 
@@ -18,7 +18,7 @@ public class SearchOption implements Option {
     private SearchOption() {}
 
     public static SearchOption getSearchOption() {
-        return (option == null) ? new SearchOption() : option;
+        return (option == null) ? (option = new SearchOption()) : option;
     }
     @Override
     public void execute() {
@@ -27,6 +27,7 @@ public class SearchOption implements Option {
         List<Book> books;
         do {
             System.out.println("What would you like to search? (search by: title, series, author, or genre). Press 'q' to quit.");
+            System.out.print("> ");
             input = scanner.next();
             if(input.equalsIgnoreCase("q")) {
                 break;
@@ -82,17 +83,16 @@ public class SearchOption implements Option {
             System.out.println("Would you like to commit this transaction?");
             System.out.print("> ");
             input = scanner.next();
-            if (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes") && (!checkoutBooks(cartBooks))) {
+            if (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes") && (!addBookToCart(cartBooks))) {
                 System.out.println("Issues adding books to your cart.");
 
             }
         }
     }
 
-    private boolean checkoutBooks(List<Book> books) {
+    private boolean addBookToCart(List<Book> books) {
         PageManager manage = PageManager.getPageManager();
-        UserCatalogItem user = UserCatalog.getUserCatalog().findUser(manage.getUser().getUser());
-        return user.getAddInfo().getCart().addBooks(books);
+        return manage.getUser().getAddInfo().getCart().addBooks(books);
     }
 
 

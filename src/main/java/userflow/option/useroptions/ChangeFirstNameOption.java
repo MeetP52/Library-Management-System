@@ -15,7 +15,7 @@ public class ChangeFirstNameOption implements Option {
     private ChangeFirstNameOption() {}
 
     public static ChangeFirstNameOption getChangeFirstNameOption() {
-        return (option == null) ? new ChangeFirstNameOption() : option;
+        return (option == null) ? (option = new ChangeFirstNameOption()) : option;
     }
     @Override
     public void execute() {

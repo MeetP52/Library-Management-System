@@ -14,7 +14,7 @@ public class ChangeEmailAddressOption implements Option {
     private ChangeEmailAddressOption() {}
 
     public static ChangeEmailAddressOption getChangeEmailAddressOption() {
-        return (option == null) ? new ChangeEmailAddressOption() : option;
+        return (option == null) ? (option = new ChangeEmailAddressOption()) : option;
     }
     @Override
     public void execute() {

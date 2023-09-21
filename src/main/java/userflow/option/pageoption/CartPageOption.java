@@ -1,6 +1,7 @@
-package userflow.option;
+package userflow.option.pageoption;
 
 import userflow.PageManager;
+import userflow.option.Option;
 
 public class CartPageOption implements Option {
 
@@ -11,7 +12,7 @@ public class CartPageOption implements Option {
     private CartPageOption() {}
 
     public static CartPageOption getCartPageOption() {
-        return (option == null) ? new CartPageOption() : option;
+        return (option == null) ? (option = new CartPageOption()) : option;
     }
     @Override
     public void execute() {

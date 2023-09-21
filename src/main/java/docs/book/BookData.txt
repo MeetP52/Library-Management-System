@@ -67,7 +67,7 @@
       "authors" : [ "J.K. Rowling" ],
       "genres" : [ "Young Adult", "Fantasy" ]
     },
-    "quantity" : 19
+    "quantity" : 18
   },
   "1740453741" : {
     "book" : {
@@ -357,7 +357,7 @@
       "authors" : [ "J.K. Rowling" ],
       "genres" : [ "Young Adult", "Fantasy" ]
     },
-    "quantity" : 19
+    "quantity" : 18
   },
   "-1540612653" : {
     "book" : {

@@ -10,7 +10,7 @@ public class UserPageWindow implements Window {
     private UserPageWindow() {}
 
     public static UserPageWindow getUserPageWindow() {
-        return (window == null) ? new UserPageWindow() : window;
+        return (window == null) ? (window = new UserPageWindow()) : window;
     }
     @Override
     public void display(UserCatalogItem user) {

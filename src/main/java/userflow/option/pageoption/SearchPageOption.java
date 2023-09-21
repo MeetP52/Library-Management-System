@@ -1,6 +1,7 @@
-package userflow.option;
+package userflow.option.pageoption;
 
 import userflow.PageManager;
+import userflow.option.Option;
 
 public class SearchPageOption implements Option {
 
@@ -10,7 +11,7 @@ public class SearchPageOption implements Option {
     private SearchPageOption() {}
 
     public static SearchPageOption getSearchPageOption() {
-        return (option == null) ? new SearchPageOption() : option;
+        return (option == null) ? (option = new SearchPageOption()) : option;
     }
     @Override
     public void execute() {

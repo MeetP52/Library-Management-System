@@ -1,6 +1,7 @@
-package userflow.option;
+package userflow.option.pageoption;
 
 import userflow.PageManager;
+import userflow.option.Option;
 
 public class HomePageOption implements Option {
     String prompt = "Goto Home Page";
@@ -10,7 +11,7 @@ public class HomePageOption implements Option {
     private HomePageOption() {}
 
     public static HomePageOption getHomePageOption() {
-        return (option == null) ? new HomePageOption() : option;
+        return (option == null) ? (option = new HomePageOption()) : option;
     }
 
     @Override

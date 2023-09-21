@@ -1,9 +1,10 @@
-package userflow.option;
+package userflow.option.otheroptions;
 
 import dev.user.UserBook;
 import dev.user.UserCatalog;
 import dev.user.UserCatalogItem;
 import userflow.PageManager;
+import userflow.option.Option;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -18,13 +19,13 @@ public class CheckoutOption implements Option {
     private CheckoutOption() {}
 
     public static CheckoutOption getCheckOutOption() {
-        return (option == null) ? new CheckoutOption() : option;
+        return (option == null) ? (option = new CheckoutOption()) : option;
     }
 
     @Override
     public void execute() {
         PageManager manager =  PageManager.getPageManager();
-        UserCatalogItem user = UserCatalog.getUserCatalog().findUser(manager.getUser().getUser());
+        UserCatalogItem user = manager.getUser();
         if(!user.getAddInfo().getCart().checkout(user)) {
             System.out.println("Issue with checkout.");
         } else {

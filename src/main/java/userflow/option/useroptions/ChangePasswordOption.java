@@ -15,20 +15,27 @@ public class ChangePasswordOption implements Option {
     private ChangePasswordOption() {}
 
     public static ChangePasswordOption getChangePasswordOption() {
-        return (option == null) ? new ChangePasswordOption() : option;
+        return (option == null) ? ( option = new ChangePasswordOption()) : option;
     }
     @Override
     public void execute() {
         PageManager manager = PageManager.getPageManager();
         UserCatalogItem user = manager.getUser();
+        Scanner scanner = new Scanner(System.in);
         System.out.println("What would you like to change your password to?");
         System.out.print("> ");
-        String newPassword = new Scanner(System.in).next();
+        String oldPassword = user.getAddInfo().getPassword();
+        String newPassword = scanner.nextLine();
         user.getAddInfo().setPassword(newPassword);
-        if(!user.getUser().getEmailAddress().equals(newPassword)) {
-            System.out.println("Invalid Password");
-        } else {
-            System.out.println("Password Changed");
+        while(!user.getAddInfo().getPassword().equals(newPassword)) {
+            System.out.println("Try Again. Press 0 to exit.");
+            System.out.print("> ");
+            newPassword = scanner.nextLine();
+            if(newPassword.equalsIgnoreCase("0")) {
+                user.getAddInfo().setPassword(oldPassword);
+                break;
+            }
+            user.getAddInfo().setPassword(newPassword);
         }
     }
 

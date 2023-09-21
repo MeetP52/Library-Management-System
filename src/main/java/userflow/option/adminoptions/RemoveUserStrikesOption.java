@@ -16,7 +16,7 @@ public class RemoveUserStrikesOption implements Option {
     private RemoveUserStrikesOption() {}
 
     public static RemoveUserStrikesOption getRemoveUserStrikesOption() {
-        return (option == null) ? new RemoveUserStrikesOption() : option;
+        return (option == null) ? ( option = new RemoveUserStrikesOption()) : option;
     }
     @Override
     public void execute() {
@@ -26,6 +26,7 @@ public class RemoveUserStrikesOption implements Option {
         users.forEach(user -> {
             if(user.getAddInfo().getStrikes() == 3) {
                 System.out.println(user.getUser().getEmailAddress() + ": " + user.getAddInfo().getStrikes());
+                System.out.print("> ");
                 String input = scanner.nextLine();
                 if(input.equalsIgnoreCase("yes") || input.equalsIgnoreCase("y")) {
                     user.getAddInfo().setStrikes(0);

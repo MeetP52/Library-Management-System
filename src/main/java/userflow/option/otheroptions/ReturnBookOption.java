@@ -1,15 +1,16 @@
-package userflow.option;
+package userflow.option.otheroptions;
 
 import dev.book.BookCatalog;
 import dev.user.UserBook;
 import dev.user.UserCatalogItem;
 import userflow.PageManager;
+import userflow.option.Option;
 
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class ReturnBookOption implements Option{
+public class ReturnBookOption implements Option {
 
     String prompt = "Return book(s)";
 
@@ -18,7 +19,7 @@ public class ReturnBookOption implements Option{
     private ReturnBookOption() {}
 
     public static ReturnBookOption getReturnBookOption() {
-        return (option == null) ? new ReturnBookOption() : option;
+        return (option == null) ? (option = new ReturnBookOption()) : option;
     }
 
     @Override

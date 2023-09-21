@@ -15,7 +15,7 @@ public class ChangeSecurityQuestionOption implements Option {
     private ChangeSecurityQuestionOption() {}
 
     public static ChangeSecurityQuestionOption getChangeSecurityQuestionOption() {
-        return (option == null) ? new ChangeSecurityQuestionOption() : option;
+        return (option == null) ? (option = new ChangeSecurityQuestionOption()) : option;
     }
     @Override
     public void execute() {
@@ -37,6 +37,7 @@ public class ChangeSecurityQuestionOption implements Option {
             System.out.println("Security Question changed successfully.");
         }
         System.out.println("Would you like to give a new answer as well?");
+        System.out.print("> ");
         String input = new Scanner(System.in).next();
         if(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes")) {
             ChnageSecurityAnswerOption answerOption = ChnageSecurityAnswerOption.getChnageSecurityAnswerOption();

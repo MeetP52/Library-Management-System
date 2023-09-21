@@ -1,8 +1,9 @@
-package userflow.option;
+package userflow.option.otheroptions;
 
 import dev.admin.AdminCatalog;
 import dev.book.BookCatalog;
 import dev.user.UserCatalog;
+import userflow.option.Option;
 
 public class LogOutOption implements Option {
 
@@ -17,7 +18,7 @@ public class LogOutOption implements Option {
     private LogOutOption() {}
 
     public static LogOutOption getLogOutOption() {
-        return (option == null) ? new LogOutOption() : option;
+        return (option == null) ? (option = new LogOutOption()) : option;
     }
 
     @Override

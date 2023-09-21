@@ -1,6 +1,12 @@
 package userflow.userprofilepage;
 
+import userflow.PageManager;
 import userflow.option.*;
+import userflow.option.otheroptions.CheckoutOption;
+import userflow.option.otheroptions.LogOutOption;
+import userflow.option.pageoption.AdminPageOption;
+import userflow.option.pageoption.HomePageOption;
+import userflow.option.pageoption.SearchPageOption;
 import userflow.option.useroptions.*;
 import userflow.Options;
 
@@ -24,10 +30,13 @@ public class UserPageOptions implements Options {
         optionMap.put(7, ChnageSecurityAnswerOption.getChnageSecurityAnswerOption());
         optionMap.put(8, ChangeSecurityQuestionOption.getChangeSecurityQuestionOption());
         optionMap.put(9, ChangePasswordOption.getChangePasswordOption());
+        if(PageManager.getPageManager().getIsAdmin()) {
+            optionMap.put(10, AdminPageOption.getAdminPageOption());
+        }
     }
 
     public static UserPageOptions getUserPageOptions() {
-        return (options == null) ? new UserPageOptions() : options;
+        return (options == null) ? (options = new UserPageOptions()) : options;
     }
 
     @Override

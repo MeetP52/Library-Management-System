@@ -14,7 +14,7 @@ public class ChangeLastNameOption implements Option {
     private ChangeLastNameOption() {}
 
     public static ChangeLastNameOption getChangeLastNameOption() {
-        return (option == null) ? new ChangeLastNameOption() : option;
+        return (option == null) ? (option = new ChangeLastNameOption()) : option;
     }
     @Override
     public void execute() {

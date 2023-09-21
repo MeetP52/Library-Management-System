@@ -15,7 +15,7 @@ public class RemoveBookOption implements Option {
     private static RemoveBookOption option;
     private RemoveBookOption() {}
     public static RemoveBookOption getRemoveBookOption() {
-        return (option == null) ? new RemoveBookOption() : option;
+        return (option == null) ? (option = new RemoveBookOption()) : option;
     }
     @Override
     public void execute() {
@@ -54,6 +54,10 @@ public class RemoveBookOption implements Option {
                 }
             }
         }
+    }
 
+    @Override
+    public String toString() {
+        return prompt;
     }
 }

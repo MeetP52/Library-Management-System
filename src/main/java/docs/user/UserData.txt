@@ -144,26 +144,5 @@
       },
       "strikes" : 0
     }
-  },
-  "-1121245852" : {
-    "user" : {
-      "firstName" : "Meet",
-      "lastName" : "Patel",
-      "emailAddress" : "meet@patel.com",
-      "phoneNumber" : "3334445555",
-      "country" : "United States",
-      "state" : "New York",
-      "city" : "Elm"
-    },
-    "addInfo" : {
-      "password" : "P@ssw0rd123",
-      "securityQuestion" : "IN_WHAT_CITY_WERE_YOU_BORN",
-      "securityAnswer" : "New York City",
-      "userBooks" : [ ],
-      "cart" : {
-        "books" : [ ]
-      },
-      "strikes" : 0
-    }
   }
 }

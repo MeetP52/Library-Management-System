@@ -9,7 +9,7 @@ public class SearchPageWindow implements Window {
     private SearchPageWindow() {}
 
     public static SearchPageWindow getSearchPageWindow() {
-        return (window == null) ? new SearchPageWindow() : window;
+        return (window == null) ? (window = new SearchPageWindow()) : window;
     }
 
     @Override

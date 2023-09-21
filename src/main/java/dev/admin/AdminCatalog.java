@@ -71,7 +71,7 @@ public class AdminCatalog {
     }
 
     public Admin findAdmin(int adminId) {
-        return (admins.get(adminId) == null) ? null : admins.get(adminId).copy("deep");
+        return (admins.get(adminId) == null) ? null : admins.get(adminId);
     }
 
     public Admin findAdmin(Admin admin) {

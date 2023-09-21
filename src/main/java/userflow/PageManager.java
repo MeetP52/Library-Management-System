@@ -1,7 +1,10 @@
 package userflow;
 
+import dev.admin.Admin;
 import dev.admin.AdminCatalog;
 import dev.user.*;
+import userflow.adminpage.AdminPageOptions;
+import userflow.adminpage.AdminPageWindow;
 import userflow.cartpage.CartPageOptions;
 import userflow.cartpage.CartPageWindow;
 import userflow.homepage.HomePageOptions;
@@ -18,34 +21,33 @@ import java.util.Scanner;
 
 public class PageManager {
 
-    private class Page {
-        private final Window window;
-        private final Options options;
-
-        public Page(Window window, Options options) {
-            this.window = window;
-            this.options = options;
-        }
+    private record Page(Window window, Options options) {
     }
 
-    Map<Integer, Page> pages = new HashMap<>();
+    private static final Map<Integer, Page> pages = new HashMap<>();
     static Scanner next = new Scanner(System.in);
     static Scanner nextLine = new Scanner(System.in);
     static int currentPage = 1;
-
+    static boolean isAdmin = false;
     private static UserCatalogItem user = null;
-
-    static PageManager manager;
+    private static PageManager manager;
 
     private PageManager() {
+    }
+
+    private static void setup() {
         pages.put(1,new Page(HomePageWindow.getHomePageWindow(),HomePageOptions.getHomePageOptions()));
         pages.put(2,new Page(SearchPageWindow.getSearchPageWindow(),SearchPageOptions.getSearchPageOptions()));
         pages.put(3,new Page(CartPageWindow.getCartPageWindow(), CartPageOptions.getCartPageOptions()));
         pages.put(4,new Page(UserPageWindow.getUserPageWindow(), UserPageOptions.getUserPageOptions()));
+        pages.put(5,new Page(AdminPageWindow.getAdminPageWindow(),AdminPageOptions.getAdminPageOptions()));
     }
 
     public static PageManager getPageManager() {
-        return (manager == null) ? new PageManager() : manager;
+        if(manager == null) {
+            manager = new PageManager();
+        }
+        return manager;
     }
 
     public static UserCatalogItem displayLogInPage() {
@@ -81,43 +83,43 @@ public class PageManager {
 
     private static void createNewUserScript() {
         String tryAgain = "Try again";
-        User _user = new User();
+        User tempUser = new User();
         AddInfo info = new AddInfo();
         String input;
         System.out.println("Please Enter your first name.");
         System.out.print("> ");
         input = next.next();
-        _user.setFirstName(input);
+        tempUser.setFirstName(input);
         System.out.println("Please Enter your last name.");
         System.out.print("> ");
         input = next.next();
-        _user.setLastName(input);
+        tempUser.setLastName(input);
         System.out.println("Please Enter your email address.");
         System.out.print("> ");
         input = next.next();
-        while(!_user.setEmailAddress(input)) {
+        while(!tempUser.setEmailAddress(input)) {
             System.out.println(tryAgain);
             input = next.next();
         }
         System.out.println("Please Enter your phone number.");
         System.out.print("> ");
         input = next.next();
-        while(!_user.setPhoneNumber(input)) {
+        while(!tempUser.setPhoneNumber(input)) {
             System.out.println(tryAgain);
             input = next.next();
         }
         System.out.println("Please Enter your current country.");
         System.out.print("> ");
         input = nextLine.nextLine();
-        _user.setCountry(input);
+        tempUser.setCountry(input);
         System.out.println("Please Enter your current state.");
         System.out.print("> ");
         input = nextLine.nextLine();
-        _user.setState(input);
+        tempUser.setState(input);
         System.out.println("Please Enter your current city.");
         System.out.print("> ");
         input = nextLine.nextLine();
-        _user.setCity(input);
+        tempUser.setCity(input);
 
         System.out.println("\n\nGreat! Now lets add some security.");
         System.out.println("Please a password.");
@@ -162,18 +164,18 @@ public class PageManager {
                 """;
         System.out.println(prompt);
         UserCatalog catalog = UserCatalog.getUserCatalog();
-        while (catalog.findUser(_user.hashCode()) != null) {
+        while (catalog.findUser(tempUser.hashCode()) != null) {
             System.out.println("Sorry it looks like someone already makes use of this email address, you must come with you another unique email address");
             System.out.print("Try again >");
             input = next.next();
-            while(!_user.setEmailAddress(input)) {
+            while(!tempUser.setEmailAddress(input)) {
                 System.out.println(tryAgain);
                 System.out.print("> ");
                 input = next.next();
             }
         }
         System.out.println("Success, your profile is being created right now.");
-        user = new UserCatalogItem(_user,info);
+        user = new UserCatalogItem(tempUser,info);
         catalog.addUser(user);
         System.out.println("Lets sign in one more time to make sure that it works.");
     }
@@ -182,16 +184,31 @@ public class PageManager {
         UserCatalog userCatalog = UserCatalog.getUserCatalog();
         AdminCatalog adminCatalog = AdminCatalog.getAdminCatalog();
         user = userCatalog.findUser(username.hashCode());
+        Admin tempAdmin;
         if(user == null) {
-            return null;
+            tempAdmin = adminCatalog.findAdmin(username.hashCode());
+            if(tempAdmin != null) {
+                if(tempAdmin.getInfo().getPassword().equals(password)) {
+                    // Note get method returns references to their respective object. Changing the user will affect the admin as well.
+                    user = new UserCatalogItem(tempAdmin.getUser(), tempAdmin.getInfo());
+                    isAdmin = true;
+                    setup();
+                    return user;
+                } else {
+                    System.out.println("Invalid Username or Password");
+                    return null;
+                }
+            }
         } else {
             if(user.getAddInfo().getPassword().equals(password)) {
+                setup();
                 return user;
             } else {
                 System.out.println("Invalid Username or Password.");
                 return null;
             }
         }
+        return user;
     }
 
     public void displayCurrentPage() {
@@ -223,12 +240,17 @@ public class PageManager {
             case "search" -> currentPage = 2;
             case "cart" -> currentPage = 3;
             case "user" -> currentPage = 4;
+            case "admin" -> currentPage = 5;
             default -> currentPage = 1;
         }
     }
 
     public UserCatalogItem getUser() {
         return user;
+    }
+
+    public boolean getIsAdmin() {
+        return isAdmin;
     }
 
 }

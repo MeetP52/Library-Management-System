@@ -12,7 +12,7 @@ import dev.user.UserCatalogItem;
 import java.util.List;
 
 public class Admin {
-    private User adminUser;
+    private User user;
     private AddInfo info;
 
     public Admin() {}
@@ -20,29 +20,29 @@ public class Admin {
     @JsonCreator
     public Admin(@JsonProperty("user") User user,
                  @JsonProperty("info") AddInfo info) {
-        this.adminUser = user;
+        this.user = user;
         this.info = info;
     }
 
     public Admin(UserCatalogItem item) {
-        this.adminUser = item.getUser().copy("deep");
+        this.user = item.getUser().copy("deep");
         this.info = item.getAddInfo().copy("deep");
     }
 
-    protected Admin(Admin adminUser) {
-        this.adminUser = adminUser.adminUser.copy("deep");
+    protected Admin(Admin user) {
+        this.user = user.user.copy("deep");
     }
 
     public User getUser() {
-        return adminUser;
+        return user;
     }
 
     public void setUser(User user) {
-        this.adminUser = user;
+        this.user = user;
     }
 
     public AddInfo getInfo() {
-        return info;
+        return this.info;
     }
 
     public void setInfo(AddInfo info) {
@@ -61,9 +61,9 @@ public class Admin {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Admin admin = (Admin) o;
+        Admin admin1 = (Admin) o;
 
-        return getUser().equals(admin.getUser());
+        return getUser().equals(admin1.getUser());
     }
 
     @Override
@@ -101,9 +101,9 @@ public class Admin {
 
     public boolean removeUserFromCatalog(List<User> users) {
         UserCatalog catalog = UserCatalog.getUserCatalog();
-        for(User user : users) {
-            if(!catalog.removeUser(catalog.findUser(user))) {
-                System.out.println("Error removing "+ user.getFirstName() + " " + user.getLastName() +" from catalog.");
+        for(User user1 : users) {
+            if(!catalog.removeUser(catalog.findUser(user1))) {
+                System.out.println("Error removing "+ user1.getFirstName() + " " + user1.getLastName() +" from catalog.");
                 return false;
             }
         }
@@ -113,9 +113,9 @@ public class Admin {
 
     public boolean addUserToCatalog(List<UserCatalogItem> users) {
         UserCatalog catalog = UserCatalog.getUserCatalog();
-        for(UserCatalogItem user : users) {
-            if(!catalog.addUser(user)) {
-                System.out.println("Error adding "+ user.getUser().getFirstName() + " " + user.getUser().getLastName() +" to catalog.");
+        for(UserCatalogItem user1 : users) {
+            if(!catalog.addUser(user1)) {
+                System.out.println("Error adding "+ user1.getUser().getFirstName() + " " + user1.getUser().getLastName() +" to catalog.");
                 return false;
             }
         }
@@ -132,10 +132,11 @@ public class Admin {
         return false;
     }
 
+
     @Override
     public String toString() {
         return "Admin {" +
-                "\n\t admin = " + adminUser +
+                "\n\t admin = " + user +
                 ",\n\t info=" + info + "\n\t" +
                 '}';
     }

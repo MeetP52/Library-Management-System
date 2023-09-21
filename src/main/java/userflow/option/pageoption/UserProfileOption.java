@@ -1,6 +1,7 @@
-package userflow.option;
+package userflow.option.pageoption;
 
 import userflow.PageManager;
+import userflow.option.Option;
 
 public class UserProfileOption implements Option {
 
@@ -11,7 +12,7 @@ public class UserProfileOption implements Option {
     private UserProfileOption() {}
 
     public static UserProfileOption gerUserProfileOption() {
-        return (option == null) ? new UserProfileOption() : option;
+        return (option == null) ? (option = new UserProfileOption()) : option;
     }
 
     @Override

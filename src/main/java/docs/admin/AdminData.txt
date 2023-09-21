@@ -13,7 +13,27 @@
       "password" : "P@ssw0rd123",
       "securityQuestion" : "IN_WHAT_CITY_WERE_YOU_BORN",
       "securityAnswer" : "New York City",
-      "userBooks" : [ ],
+      "userBooks" : [ {
+        "book" : {
+          "title" : "Harry Potter and the Chamber of Secrets",
+          "series" : "Harry Potter (Book 2)",
+          "description" : "In his second year at Hogwarts, Harry faces a new mystery involving the Chamber of Secrets.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Young Adult", "Fantasy" ]
+        },
+        "pickUpDate" : "2023-09-21",
+        "dueDate" : "2023-10-21"
+      }, {
+        "book" : {
+          "title" : "Harry Potter and the Half-Blood Prince",
+          "series" : "Harry Potter (Book 6)",
+          "description" : "As Voldemort's power increases, Harry uncovers the history of Horcruxes and prepares for the ultimate battle.",
+          "authors" : [ "J.K. Rowling" ],
+          "genres" : [ "Young Adult", "Fantasy" ]
+        },
+        "pickUpDate" : "2023-09-21",
+        "dueDate" : "2023-12-12"
+      } ],
       "cart" : {
         "books" : [ ]
       },

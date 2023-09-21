@@ -13,7 +13,7 @@ public class HomePageWindow implements Window {
     private HomePageWindow() {}
 
     public static HomePageWindow getHomePageWindow() {
-        return (window == null) ? new HomePageWindow() : window;
+        return (window == null) ? (window = new HomePageWindow()) : window;
     }
 
     @Override

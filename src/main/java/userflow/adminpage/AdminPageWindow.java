@@ -8,7 +8,7 @@ public class AdminPageWindow implements Window {
     private static AdminPageWindow window;
     private AdminPageWindow() {}
     public static AdminPageWindow getAdminPageWindow() {
-        return (window == null) ? new AdminPageWindow() : window;
+        return (window == null) ? (window = new AdminPageWindow()) : window;
     }
     @Override
     public void display(UserCatalogItem user) {
